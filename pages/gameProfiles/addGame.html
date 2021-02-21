@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../../styles/gameProfiles/addGame.css">
+    <link rel="stylesheet" href="../../styles/style.css">
+
+    <title>Add Game</title>
+</head>
+
+<body>
+    <div class="flexbox-container">
+        <form class="grid-layout">
+            <div class="gameNameLable">
+                <label class="noselect">Game Name:</label>
+            </div>
+            <div class="gameDirLable">
+                <label class="noselect">Game Directory:</label>
+            </div>
+            <div class="gameNameInput">
+                <input type="text" id="name" spellcheck="false" required autofocus>
+            </div>
+            <div class="gameDirInput">
+                <input type="text" id="dir" spellcheck="false" required>
+            </div>
+            <div class="gameDirBrowseBtn">
+                <button class="btn-style-1" type="button" id="getPath">Browse...</button>
+            </div>
+            <div class="cancelBtn">
+                <button class="btn-style-1" type="button" id="cancel">Cancel</button>
+            </div>
+            <div class="submitBtn">
+                <button class="btn-style-1" type="submit">OK</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="../../scripts/gameProfiles/addGame.js"></script>
+</body>
+
+</html>
