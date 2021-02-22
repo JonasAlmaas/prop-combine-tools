@@ -7,7 +7,10 @@
     --color-primaryDarker: rgb(28, 32, 38);
     --color-text-blue: rgb(86, 182, 195);
     --color-text-green: rgb(145, 196, 122);
+    --color-text-grey: rgb(147, 150, 155);
     --color-text-magenta: rgb(205, 125, 231);
+    --color-text-red: rgb(220, 107, 117);
+    --color-text-white: rgb(209, 217, 231);
     --color-text-yellow: rgb(233, 197, 120);
 }
 
