@@ -1,0 +1,31 @@
+.flexbox-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 23vw 23vw 23vw 23vw;
+    grid-template-rows: repeat(3, 6vw);
+    grid-gap: 5px;
+    grid-template-areas:
+    "gameNameLable gameNameInput gameNameInput  gameNameInput "
+    "gameDirLable gameDirInput gameDirInput gameDirBrowseBtn"
+    " . submitBtn cancelBtn .";
+}
+
+.grid-layout div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.gameNameLable {grid-area: gameNameLable;}
+.gameDirLable {grid-area: gameDirLable;}
+.gameNameInput {grid-area: gameNameInput;}
+.gameDirInput {grid-area: gameDirInput;}
+.gameDirBrowseBtn {grid-area: gameDirBrowseBtn;}
+.submitBtn {grid-area: submitBtn;}
+.cancelBtn {grid-area: cancelBtn;}
