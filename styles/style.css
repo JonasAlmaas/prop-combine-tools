@@ -5,8 +5,6 @@
     --color-primary: rgb(40, 44, 52);
     --color-primaryDark: rgb(33, 37, 43);
     --color-primaryDarker: rgb(28, 32, 38);
-    --color-text-white: rgb(209, 217, 231);
-    --color-text-red: rgb(220, 107, 117);
     --color-text-blue: rgb(86, 182, 195);
     --color-text-green: rgb(145, 196, 122);
     --color-text-magenta: rgb(205, 125, 231);
@@ -15,7 +13,6 @@
 
 html {
     background-color: var(--color-primary);
-    color: var(--whiteText);
     font-family: 'Montserrat',sans-serif;
 }
 
@@ -33,7 +30,6 @@ label {
     color: var(--color-text-white);
 }
 
-input {
     background-color: var(--color-primaryDark);
     border-style: solid;
     border: none;
@@ -43,11 +39,77 @@ input {
     width: 100%;
 }
 
-input::selection {
     background-color: var(--color-text-white);
     color: var(--color-primaryDark);
 }
 
+/* INTRACTABLE LIST */
+.intractable-list-container {
+    background-color: var(--color-primaryDark);
+    padding: 5px;
+    overflow-y: scroll;
+}
+
+/* INTRACTABLE LIST ITEM */
+.intractable-list-item {
+    align-items: center;
+    background: var(--color-primaryDark);
+    border-style: solid;
+    border-color: var(--color-primary);
+    border-width: 0px 0px 1px 0px;
+	color: var(--color-text-white);
+	cursor: pointer;
+    display: flex;
+	font: inherit;
+    font-size: 14px;
+    height: 35px;
+    justify-content: space-between;
+	outline: none;
+	padding: 0;
+    width: 100%;
+}
+
+.active-intractable-list-item {
+    align-items: center;
+    background: var(--color-primaryDarker);
+    border-style: solid;
+    border-color: var(--color-primary);
+    border-width: 0px 0px 1px 0px;
+	color: var(--color-text-white);
+	cursor: pointer;
+    display: flex;
+	font: inherit;
+    font-size: 14px;
+    height: 35px;
+    justify-content: space-between;
+	outline: none;
+	padding: 0;
+    width: 100%;
+}
+
+.active-intractable-list-item label {
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.intractable-list-item label {
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.intractable-list-item label:last-child {
+    color: var(--color-text-grey);
+}
+
+.intractable-list-item:last-child {
+    border: none;
+}
+
+.intractable-list-item:hover {
+    background-color: var(--color-primaryDarker);
+}
+
+/* bButton STYLE 1 */
 .btn-style-1 {
     background: var(--color-primaryDark);
 	border: none;
@@ -65,6 +127,7 @@ input::selection {
     background-color: var(--color-primaryDarker);
 }
 
+/* NO SELECT */
 .noselect {
     user-select: none;
 }
