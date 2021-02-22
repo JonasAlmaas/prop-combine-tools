@@ -30,6 +30,8 @@ label {
     color: var(--color-text-white);
 }
 
+/* INPUT FIELD  */
+.input-field {
     background-color: var(--color-primaryDark);
     border-style: solid;
     border: none;
@@ -39,6 +41,7 @@ label {
     width: 100%;
 }
 
+.input-field::selection {
     background-color: var(--color-text-white);
     color: var(--color-primaryDark);
 }
