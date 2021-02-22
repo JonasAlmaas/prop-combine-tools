@@ -8,12 +8,12 @@
 .grid-layout {
     display: grid;
     grid-template-columns: 1vw 1fr 1vw;
-    grid-template-rows: 1vw 1fr 10fr 1vw;
-    grid-gap: 1vw;
+    grid-template-rows: 1vw 50px 10fr 1vw;
+    grid-gap: 5px;
     grid-template-areas:
     ". . ."
     ". tools-grid ."
-    " . list-container ."
+    " . intractable-list-container ."
     ". . .";
     height: 100%;
     width: 100%;
@@ -32,7 +32,4 @@
 .edit {grid-area: edit;}
 .remove {grid-area: remove;}
 .cancel {grid-area: cancel;}
-.list-container {
-    background-color: var(--color-primaryDark);
-    grid-area: list-container;
-}
+.intractable-list-container {grid-area: intractable-list-container;}
