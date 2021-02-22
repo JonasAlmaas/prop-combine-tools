@@ -131,3 +131,17 @@ label {
 .noselect {
     user-select: none;
 }
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-primaryDark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primaryDarker);
+    border-radius: 3px;
+}
