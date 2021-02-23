@@ -1,0 +1,12 @@
+.page-wrapper {
+    background-color: var(--color-primary);
+    margin-left: 200px;
+    height: 100vh;
+}
+
+.flexbox-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
