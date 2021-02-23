@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="../styles/games.css">
+        <link rel="stylesheet" href="../styles/sidebar.css">
+        <link rel="stylesheet" href="../styles/pages.css">
+        <link rel="stylesheet" href="../styles/style.css">
+
+        <title>Prop Combine Tools</title>
+    </head>
+
+    <body>
+        <!-- SIDEBAR -->
+        <div class="sidebar-wrapper">
+            <div class="navbar">
+                <div class="navbar-item">
+                    <a class="noselect" href="home.html">Home</a>
+                </div>
+                <div class="navbar-item navbar-item-selected">
+                    <a class="noselect" href="#">Games</a>
+                </div>
+                <div class="navbar-item">
+                    <a class="noselect" href="projects.html">Projects</a>
+                </div>
+                <div class="navbar-item">
+                    <a class="noselect" href="guide.html">Guide</a>
+                </div>
+                <div class="navbar-item">
+                    <a class="noselect" href="resources.html">Resources</a>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-text noselect">Copyright © 2020</div>
+            </div>
+        </div>
+
+        <!-- MAIN PAGE CONTENT -->
+        <div class="page-wrapper">
+            <div>
+                <div class="flexbox-container">
+                    <div class="grid-layout">
+                        <div class="tools-grid">
+                            <div class="edit">
+                                <button class="btn-style-1 noselect" id="btn-edit">Edit</button>
+                            </div>
+                            <div class="remove">
+                                <button class="btn-style-1 noselect" id="btn-remove">Remove</button>
+                            </div>
+                        </div>
+                        <form class="edit-grid">
+                            <div class="gameNameLable">
+                                <label class="noselect">Game Name:</label>
+                            </div>
+                            <div class="gameDirLable">
+                                <label class="noselect">Game Directory:</label>
+                            </div>
+                            <div class="gameNameInput">
+                                <input class="input-field" type="text" id="name" spellcheck="false" required autofocus>
+                            </div>
+                            <div class="gameDirInput">
+                                <input class="input-field" type="text" id="path" spellcheck="false" required>
+                            </div>
+                            <div class="gameDirBrowseBtn">
+                                <button class="btn-style-1 noselect" type="button" id="btn-browse">Browse...</button>
+                            </div>
+                            <div class="cancelBtn">
+                                <button class="btn-style-1 noselect" type="button" id="btn-cancel">Cancel</button>
+                            </div>
+                            <div class="submitBtn">
+                                <button class="btn-style-1 noselect" type="submit" id="btn-submit">Create New</button>
+                            </div>
+                        </form>
+                        <div class="intractable-list-container" id="intractable-list-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="../scripts/games.js"></script>
+    </body>
+</html>
