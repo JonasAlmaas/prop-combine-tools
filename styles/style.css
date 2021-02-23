@@ -93,17 +93,21 @@ label {
     width: 100%;
 }
 
-.active-intractable-list-item label {
-    cursor: pointer;
-    margin: 0 5px;
-}
-
 .intractable-list-item label {
     cursor: pointer;
     margin: 0 5px;
 }
 
+.active-intractable-list-item label {
+    cursor: pointer;
+    margin: 0 5px;
+}
+
 .intractable-list-item label:last-child {
+    color: var(--color-text-grey);
+}
+
+.active-intractable-list-item label:last-child {
     color: var(--color-text-grey);
 }
 
