@@ -1,0 +1,59 @@
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 600px 1fr;
+    grid-template-rows: 10px 50px 5fr 1fr 10px;
+    grid-gap: 5px;
+    grid-template-areas:
+    " . . . "
+    ". tools-grid . "
+    " . intractable-list-container . "
+    ". edit-grid . "
+    ". . . ";
+    height: 100%;
+    width: 100%;
+}
+
+.tools-grid {
+    display: grid;
+    grid-area: tools-grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+    grid-template-areas:
+    "edit remove";
+}
+
+.edit {grid-area: edit;}
+.remove {grid-area: remove;}
+.intractable-list-container {grid-area: intractable-list-container;}
+
+.edit-grid {
+    display: grid;
+    grid-area: edit-grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 5px;
+    grid-template-areas:
+    "gameNameLable gameNameInput gameNameInput  gameNameInput "
+    "gameDirLable gameDirInput gameDirInput gameDirBrowseBtn"
+    " . submitBtn submitBtn cancelBtn";
+}
+
+.edit-grid div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.edit-grid label {
+    padding-right: 10px;
+}
+
+.gameNameLable {grid-area: gameNameLable;}
+.gameDirLable {grid-area: gameDirLable;}
+.gameNameInput {grid-area: gameNameInput;}
+.gameDirInput {grid-area: gameDirInput;}
+.gameDirBrowseBtn {grid-area: gameDirBrowseBtn;}
+.cancelBtn {grid-area: cancelBtn;}
+.submitBtn {grid-area: submitBtn;}
