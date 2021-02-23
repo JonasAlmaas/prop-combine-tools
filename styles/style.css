@@ -3,6 +3,7 @@
 :root {
     /* COLORS */
     --color-primary: rgb(40, 44, 52);
+    --color-primaryLight: rgb(61, 67, 78);
     --color-primaryDark: rgb(33, 37, 43);
     --color-primaryDarker: rgb(28, 32, 38);
     --color-text-blue: rgb(86, 182, 195);
@@ -15,22 +16,34 @@
 }
 
 html {
-    background-color: var(--color-primary);
+    scroll-behavior: smooth;
     font-family: 'Montserrat',sans-serif;
 }
 
 body {
+    overflow-y: hidden;
     margin: 0;
     padding: 0;
 }
 
 h1 {
     color: var(--color-text-white);
+    padding: 0;
+    margin: 0;
 }
 
 label {
     font-size: 14px;
     color: var(--color-text-white);
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    font-size: 14px;
+    outline: none;
+    padding: 0;
 }
 
 /* INPUT FIELD  */
@@ -39,9 +52,11 @@ label {
     border-style: solid;
     border: none;
     color: var(--color-text-white);
+    font-size: 14px;
     height: 100%;
     outline: 0;
     width: 100%;
+    padding: 0 10px;
 }
 
 .input-field::selection {
@@ -59,56 +74,16 @@ label {
 /* INTRACTABLE LIST ITEM */
 .intractable-list-item {
     align-items: center;
-    background: var(--color-primaryDark);
+    background-color: var(--color-primaryDark);
     border-style: solid;
     border-color: var(--color-primary);
     border-width: 0px 0px 1px 0px;
 	color: var(--color-text-white);
-	cursor: pointer;
     display: flex;
-	font: inherit;
     font-size: 14px;
     height: 35px;
     justify-content: space-between;
-	outline: none;
-	padding: 0;
     width: 100%;
-}
-
-.active-intractable-list-item {
-    align-items: center;
-    background: var(--color-primaryDarker);
-    border-style: solid;
-    border-color: var(--color-primary);
-    border-width: 0px 0px 1px 0px;
-	color: var(--color-text-white);
-	cursor: pointer;
-    display: flex;
-	font: inherit;
-    font-size: 14px;
-    height: 35px;
-    justify-content: space-between;
-	outline: none;
-	padding: 0;
-    width: 100%;
-}
-
-.intractable-list-item label {
-    cursor: pointer;
-    margin: 0 5px;
-}
-
-.active-intractable-list-item label {
-    cursor: pointer;
-    margin: 0 5px;
-}
-
-.intractable-list-item label:last-child {
-    color: var(--color-text-grey);
-}
-
-.active-intractable-list-item label:last-child {
-    color: var(--color-text-grey);
 }
 
 .intractable-list-item:last-child {
@@ -119,7 +94,20 @@ label {
     background-color: var(--color-primaryDarker);
 }
 
-/* bButton STYLE 1 */
+.active-intractable-list-item {
+    background: var(--color-primaryDarker);
+}
+
+.intractable-list-item label {
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.intractable-list-item label:last-child {
+    color: var(--color-text-grey);
+}
+
+/* BUTTON STYLE 1 */
 .btn-style-1 {
     background: var(--color-primaryDark);
 	border: none;
@@ -129,7 +117,6 @@ label {
     font-size: 14px;
     height: 100%;
 	outline: none;
-	padding: 0;
     width: 100%;
 }
 
@@ -155,3 +142,4 @@ label {
     background: var(--color-primaryDarker);
     border-radius: 3px;
 }
+  
