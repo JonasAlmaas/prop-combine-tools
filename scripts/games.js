@@ -13,27 +13,27 @@ const btnCancel = document.getElementById('btn-cancel');
 const btnSubmit = document.getElementById('btn-submit');
 const form = document.querySelector('form');
 
-const listContainer = document.getElementById('intractable-list-container');
+const gamesListContainter = document.getElementById('games-list-containter');
 const inputName = document.getElementById('name');
 const inputDir = document.getElementById('path');
 
-var activeGame = null;
+var selectedGame = null;
 var isEditing = false;
 
 btnEdit.addEventListener('click', (e) => {
     edit();
 })
 btnRemove.addEventListener('click', (e) => {
-    if (activeGame !== null) {
+    if (selectedGame !== null) {
         var data = fs.readFileSync(gamesPath);
         var jsonData = JSON.parse(data);
 
-        delete jsonData[activeGame];
+        delete jsonData[selectedGame];
 
         var data = JSON.stringify(jsonData, null, 4);
         fs.writeFileSync(gamesPath, data);
 
-        activeGame = null;
+        selectedGame = null;
         updateGamesList();
     }
 })
@@ -48,7 +48,7 @@ btnBrowse.addEventListener('click', (e) => {
     }
 })
 btnCancel.addEventListener('click', (e) => {
-    activeGame = null;
+    selectedGame = null;
     disableEditing();
     clearInputs();
 })
@@ -70,7 +70,7 @@ form.addEventListener('submit', function (e) {
     const gameDir = document.querySelector('#path').value;
 
     if (isEditing) {
-        gameKey = activeGame;
+        gameKey = selectedGame;
     } else {
         gameKey = uuidv4();
     }
@@ -88,12 +88,12 @@ form.addEventListener('submit', function (e) {
 })
 
 function edit() {
-    if (activeGame !== null) {
+    if (selectedGame !== null) {
         var data = fs.readFileSync(gamesPath);
         var jsonData = JSON.parse(data);
 
-        inputName.value = jsonData[activeGame]['name'];
-        inputDir.value = jsonData[activeGame]['path'];
+        inputName.value = jsonData[selectedGame]['name'];
+        inputDir.value = jsonData[selectedGame]['path'];
 
         enableEditing();
     }
@@ -116,39 +116,37 @@ function clearInputs() {
 }
 
 function updateGamesList() {
-    listContainer.innerHTML = '';
+    gamesListContainter.innerHTML = '';
     if (fs.existsSync(gamesPath)) {
         var data = fs.readFileSync(gamesPath);
         var jsonData = JSON.parse(data);
 
-        for (i=0; i<20; i++) {
-            for (var key in jsonData) {
-                const button = document.createElement('button');
-                if (key == activeGame) {
-                    button.className = 'intractable-list-item active-intractable-list-item noselect';
-                } else {
-                    button.className = 'intractable-list-item noselect';
-                }
-                button.id = key;
-                button.onclick = function () {
-                    activeGame = button.id;
-                    updateGamesList();
-                }
-                button.addEventListener('dblclick', (e) => {
-                    edit();
-                })
-    
-                var labelName = document.createElement('label');
-                labelName.innerHTML  = jsonData[key]['name'];
-    
-                var labelPath = document.createElement('label');
-                labelPath.innerHTML  = jsonData[key]['path'];
-    
-                button.appendChild(labelName);
-                button.appendChild(labelPath);
-    
-                listContainer.appendChild(button);
+        for (var key in jsonData) {
+            const button = document.createElement('button');
+            if (key == selectedGame) {
+                button.className = 'intractable-list-item active-intractable-list-item noselect';
+            } else {
+                button.className = 'intractable-list-item noselect';
             }
+            button.id = key;
+            button.onclick = function () {
+                selectedGame = button.id;
+                updateGamesList();
+            }
+            button.addEventListener('dblclick', (e) => {
+                edit();
+            })
+
+            var labelName = document.createElement('label');
+            labelName.innerHTML  = jsonData[key]['name'];
+
+            var labelPath = document.createElement('label');
+            labelPath.innerHTML  = jsonData[key]['path'];
+
+            button.appendChild(labelName);
+            button.appendChild(labelPath);
+
+            gamesListContainter.appendChild(button);
         }
     }
 }
