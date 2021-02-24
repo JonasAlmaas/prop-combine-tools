@@ -1,0 +1,31 @@
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 550px 1fr;
+    grid-template-rows: 5px 50px 1fr 50px 5px;
+    grid-gap: 5px;
+    grid-template-areas:
+    " . . . "
+    " . wrapper-game ."
+    " . profiles-list-containter . "
+    " . tools-grid . "
+    ". . . ";
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper-game {grid-area: wrapper-game;}
+
+.tools-grid {
+    display: grid;
+    grid-area: tools-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    grid-template-areas:
+    " new edit remove";
+}
+
+.new {grid-area: new;}
+.edit {grid-area: edit;}
+.remove {grid-area: remove;}
+
+.profiles-list-containter {grid-area: profiles-list-containter;}
