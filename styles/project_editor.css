@@ -1,0 +1,61 @@
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 550px 550px 1fr;
+    grid-template-rows: 5px 100px 1fr 5px;
+    grid-gap: 5px;
+    grid-template-areas:
+    " . . . . "
+    " . wrapper-game wrapper-preview . "
+    " . wrapper-clusters wrapper-preview . "
+    ". . . . ";
+    height: 100%;
+    width: 100%;
+}
+
+.title-Game {grid-area: title-Game;}
+.wrapper-game {
+    display: grid;
+    grid-area: wrapper-game;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas:
+    " title-Game "
+    " preview-wrapper ";
+}
+
+.title-clusters {grid-area: title-clusters;}
+.clusters-list-wrapper {grid-area: clusters-list-wrapper;}
+.wrapper-clusters {
+    display: grid;
+    grid-area: wrapper-clusters;
+    grid-template-rows: 50px 1fr 50px;
+    grid-template-areas:
+    " title-clusters "
+    " clusters-list-wrapper "
+    " tools-grid ";
+}
+
+.title-preview {grid-area: title-preview;}
+.wrapper-preview {
+    display: grid;
+    grid-area: wrapper-preview;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas:
+    " title-preview "
+    " preview-wrapper ";
+}
+
+.preview-wrapper {grid-area: preview-wrapper;}
+
+.tools-grid {
+    display: grid;
+    grid-area: tools-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.btn-style-1 {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-style: solid;
+    border-color: var(--color-primary);
+    border-width: 1px 0 0 0;
+}
