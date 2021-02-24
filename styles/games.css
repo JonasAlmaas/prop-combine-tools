@@ -1,17 +1,20 @@
 .grid-layout {
     display: grid;
-    grid-template-columns: 1fr 600px 1fr;
-    grid-template-rows: 10px 50px 5fr 1fr 10px;
+    grid-template-columns: 1fr 550px 1fr;
+    grid-template-rows: 5px 50px 1fr 50px 110px 5px;
     grid-gap: 5px;
     grid-template-areas:
     " . . . "
-    ". tools-grid . "
-    " . intractable-list-container . "
+    " . wrapper-game . "
+    " . games-list-containter . "
+    " . tools-grid . "
     ". edit-grid . "
     ". . . ";
     height: 100%;
     width: 100%;
 }
+
+.wrapper-game {grid-area: wrapper-game;}
 
 .tools-grid {
     display: grid;
@@ -24,7 +27,7 @@
 
 .edit {grid-area: edit;}
 .remove {grid-area: remove;}
-.intractable-list-container {grid-area: intractable-list-container;}
+.games-list-containter {grid-area: games-list-containter;}
 
 .edit-grid {
     display: grid;
