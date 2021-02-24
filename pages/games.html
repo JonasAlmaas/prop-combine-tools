@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../styles/games.css">
+        <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/sidebar.css">
         <link rel="stylesheet" href="../styles/pages.css">
-        <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/games.css">
 
         <title>Prop Combine Tools</title>
     </head>
@@ -31,7 +31,7 @@
             </div>
 
             <div class="footer">
-                <div class="footer-text noselect">Copyright © 2020</div>
+                <div class="footer-text noselect">Copyright © 2021</div>
             </div>
         </div>
 
@@ -40,6 +40,12 @@
             <div>
                 <div class="flexbox-container">
                     <div class="grid-layout">
+                        <div class="section-wrapper wrapper-game">
+                            <div class="section-title-wrapper">
+                                <div class="section-title noselect">Games</div>
+                            </div>
+                        </div>
+
                         <div class="tools-grid">
                             <div class="edit">
                                 <button class="btn-style-1 noselect" id="btn-edit">Edit</button>
@@ -48,6 +54,7 @@
                                 <button class="btn-style-1 noselect" id="btn-remove">Remove</button>
                             </div>
                         </div>
+
                         <form class="edit-grid">
                             <div class="gameNameLable">
                                 <label class="noselect">Game Name:</label>
@@ -71,7 +78,8 @@
                                 <button class="btn-style-1 noselect" type="submit" id="btn-submit">Create New</button>
                             </div>
                         </form>
-                        <div class="intractable-list-container" id="intractable-list-container"></div>
+
+                        <div class="intractable-list-wrapper games-list-containter" id="games-list-containter"></div>
                     </div>
                 </div>
             </div>
