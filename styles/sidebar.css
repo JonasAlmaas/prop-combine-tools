@@ -6,7 +6,7 @@
     flex-direction: column;
     height: 100vh;
     justify-content: space-between;
-    width: 200px;
+    width: 175px;
 }
 
 .navbar {
@@ -33,7 +33,7 @@
     justify-content: center;
     border-radius: 3px;
     color: var(--color-text-white);
-    font-size: 22px;
+    font-size: 20px;
     text-decoration: none;
     height: 100%;
     width: 100%;
@@ -57,6 +57,6 @@
 
 .footer-text {
     display: flex;
-    font-size: 12px;
+    font-size: 10px;
     color: var(--color-text-white);
 }
