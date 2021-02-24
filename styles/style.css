@@ -16,7 +16,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
     font-family: 'Montserrat',sans-serif;
 }
 
@@ -26,15 +26,13 @@ body {
     padding: 0;
 }
 
-h1 {
-    color: var(--color-text-white);
-    padding: 0;
-    margin: 0;
-}
-
 label {
     font-size: 14px;
     color: var(--color-text-white);
+}
+
+h1 {
+    margin: 0;
 }
 
 button {
@@ -46,32 +44,13 @@ button {
     padding: 0;
 }
 
-/* INPUT FIELD  */
-.input-field {
-    background-color: var(--color-primaryDark);
-    border-style: solid;
-    border: none;
-    color: var(--color-text-white);
-    font-size: 14px;
-    height: 100%;
-    outline: 0;
-    width: 100%;
-    padding: 0 10px;
-}
-
-.input-field::selection {
-    background-color: var(--color-text-white);
-    color: var(--color-primaryDark);
-}
-
-/* INTRACTABLE LIST */
-.intractable-list-container {
-    background-color: var(--color-primaryDark);
+/* LISTS */
+.intractable-list-wrapper {
     padding: 5px;
     overflow-y: scroll;
 }
 
-/* INTRACTABLE LIST ITEM */
+/* LIST ITEM */
 .intractable-list-item {
     align-items: center;
     background-color: var(--color-primaryDark);
@@ -103,14 +82,33 @@ button {
     margin: 0 5px;
 }
 
-.intractable-list-item label:last-child {
+.intractable-list-item label:nth-child(2) {
     color: var(--color-text-grey);
+}
+
+/* INPUT FIELD  */
+.input-field {
+    background-color: var(--color-primaryDark);
+    border-style: solid;
+    border: none;
+    color: var(--color-text-white);
+    font-size: 14px;
+    height: 100%;
+    outline: 0;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.input-field::selection {
+    background-color: var(--color-text-white);
+    color: var(--color-primaryDark);
 }
 
 /* BUTTON STYLE 1 */
 .btn-style-1 {
     background: var(--color-primaryDark);
 	border: none;
+    border-radius: 5px;
 	color: var(--color-text-white);
 	cursor: pointer;
 	font: inherit;
@@ -142,4 +140,3 @@ button {
     background: var(--color-primaryDarker);
     border-radius: 3px;
 }
-  
