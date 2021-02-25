@@ -2,66 +2,43 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/sidebar.css">
-        <link rel="stylesheet" href="../styles/pages.css">
-        <link rel="stylesheet" href="../styles/projects.css">
+        <link rel="stylesheet" href="../styles/pages/projects.css">
 
         <title>Prop Combine Tools</title>
     </head>
 
     <body>
-        <!-- SIDEBAR -->
-        <div class="sidebar-wrapper">
-            <div class="navbar">
-                <div class="navbar-item">
-                    <a class="noselect" href="home.html">Home</a>
-                </div>
-                <div class="navbar-item">
-                    <a class="noselect" href="games.html">Games</a>
-                </div>
-                <div class="navbar-item navbar-item-selected">
-                    <a class="noselect" href="#">Projects</a>
-                </div>
-                <div class="navbar-item">
-                    <a class="noselect" href="guide.html">Guide</a>
-                </div>
-                <div class="navbar-item">
-                    <a class="noselect" href="resources.html">Resources</a>
-                </div>
-            </div>
-
-            <div class="footer">
-                <div class="footer-text noselect">Copyright © 2020</div>
-            </div>
-        </div>
-
-        <!-- MAIN PAGE CONTENT -->
         <div class="page-wrapper">
-            <div class="flexbox-container">
-                <div class="grid-layout">
-                    <div class="section-wrapper wrapper-game">
-                        <div class="section-title-wrapper">
-                            <div class="section-title noselect">Projects</div>
-                        </div>
+            <div class="grid-layout">
+                <div class="section-wrapper wrapper-projects">
+                    <div class="section-title-wrapper title-projects">
+                        <div class="section-title noselect">Projects</div>
                     </div>
-
+                    <div class="intractable-list-wrapper profiles-list-containter" id="profiles-list-containter"></div>
                     <div class="tools-grid">
-                        <div class="new">
+                        <div class="btn-new">
                             <button class="btn-style-1 noselect" id="btn-new">New</button>
                         </div>
-                        <div class="edit">
+                        <div class="btn-edit">
                             <button class="btn-style-1 noselect" id="btn-edit">Edit</button>
                         </div>
-                        <div class="remove">
+                        <div class="btn-remove">
                             <button class="btn-style-1 noselect" id="btn-remove">Remove</button>
                         </div>
                     </div>
+                </div>
 
-                    <div class="intractable-list-wrapper profiles-list-containter" id="profiles-list-containter"></div>
+                <div class="section-wrapper wrapper-preview">
+                    <div class="section-title-wrapper title-preview">
+                        <div class="section-title noselect">Preview</div>
+                    </div>
+                    <div class="preview-wrapper" id="preview-wrapper">
+                        <div class="preview-content" id="preview-content"></div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <script src="../scripts/projects.js"></script>
+        <script src="../scripts/pages/projects.js"></script>
     </body>
 </html>
