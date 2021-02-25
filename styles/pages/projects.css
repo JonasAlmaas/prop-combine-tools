@@ -1,0 +1,46 @@
+.grid-layout {
+    display: grid;
+    grid-template-columns: 5px 1fr 1fr 5px;
+    grid-template-rows: 5px 1fr 5px;
+    grid-gap: 5px;
+    grid-template-areas:
+    " . . . . "
+    " . wrapper-projects wrapper-preview . "
+    ". . . . ";
+    height: 100%;
+    width: 100%;
+}
+
+.title-projects {grid-area: title-projects;}
+.profiles-list-containter {grid-area: profiles-list-containter;}
+.wrapper-projects {
+    display: grid;
+    grid-area: wrapper-projects;
+    grid-template-rows: 50px 1fr 50px;
+    grid-template-areas:
+    " title-projects "
+    " profiles-list-containter "
+    " tools-grid ";
+}
+
+.tools-grid {
+    border-color: var(--color-primary);
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    display: grid;
+    grid-area: tools-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.title-preview {grid-area: title-preview;}
+.wrapper-preview {
+    display: grid;
+    grid-area: wrapper-preview;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas:
+    " title-preview "
+    " . ";
+}
+
+.btn-new button {border-bottom-left-radius: 5px;}
+.btn-remove button {border-bottom-right-radius: 5px;}
