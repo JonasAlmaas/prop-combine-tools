@@ -1,25 +1,37 @@
 .grid-layout {
     display: grid;
-    grid-template-columns: 1fr 550px 550px 1fr;
+    grid-template-columns: 5px 1fr 1fr 2fr 5px;
     grid-template-rows: 5px 100px 1fr 5px;
     grid-gap: 5px;
     grid-template-areas:
-    " . . . . "
-    " . wrapper-game wrapper-preview . "
-    " . wrapper-clusters wrapper-preview . "
-    ". . . . ";
+    " . . . . . "
+    " . wrapper-name wrapper-game wrapper-preview . "
+    " . wrapper-clusters wrapper-clusters wrapper-preview . "
+    ". . . . . ";
     height: 100%;
     width: 100%;
 }
 
-.title-Game {grid-area: title-Game;}
+.title-name {grid-area: title-name;}
+.input-name {grid-area: input-name;}
+.wrapper-name {
+    display: grid;
+    grid-area: wrapper-name;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas:
+    " title-name "
+    " input-name ";
+}
+
+.title-game {grid-area: title-game;}
+.dropdown-wrapper {grid-area: dropdown-wrapper;}
 .wrapper-game {
     display: grid;
     grid-area: wrapper-game;
     grid-template-rows: 50px 1fr;
     grid-template-areas:
-    " title-Game "
-    " preview-wrapper ";
+    " title-game "
+    " dropdown-wrapper ";
 }
 
 .title-clusters {grid-area: title-clusters;}
@@ -47,15 +59,13 @@
 .preview-wrapper {grid-area: preview-wrapper;}
 
 .tools-grid {
+    border-color: var(--color-primary);
+    border-style: solid;
+    border-width: 1px 0 0 0;
     display: grid;
     grid-area: tools-grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.btn-style-1 {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-style: solid;
-    border-color: var(--color-primary);
-    border-width: 1px 0 0 0;
-}
+.btn-new button {border-bottom-left-radius: 5px;}
+.btn-remove button {border-bottom-right-radius: 5px;}
