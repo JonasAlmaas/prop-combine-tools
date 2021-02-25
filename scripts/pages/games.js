@@ -1,21 +1,24 @@
-const dialog = require("electron").remote.dialog;
-const fs = require('fs');
-const path = require('path');
-const { v4: uuidv4 } = require('uuid');
+const sidebar = require('../scripts/sidebar.js')
+sidebar.create('games')
 
-const dataFolderPath = path.resolve(__dirname, '../data');
-const gamesPath = path.resolve(dataFolderPath, 'games.json');
+const dialog = require("electron").remote.dialog
+const fs = require('fs')
+const path = require('path')
+const { v4: uuidv4 } = require('uuid')
 
-const btnEdit = document.getElementById('btn-edit');
-const btnRemove = document.getElementById('btn-remove');
-const btnBrowse = document.getElementById('btn-browse');
-const btnCancel = document.getElementById('btn-cancel');
-const btnSubmit = document.getElementById('btn-submit');
-const form = document.querySelector('form');
+const dataFolderPath = path.resolve(__dirname, '../data')
+const gamesPath = path.resolve(dataFolderPath, 'games.json')
 
-const gamesListContainter = document.getElementById('games-list-containter');
-const inputName = document.getElementById('name');
-const inputDir = document.getElementById('path');
+const btnEdit = document.getElementById('btn-edit')
+const btnRemove = document.getElementById('btn-remove')
+const btnBrowse = document.getElementById('btn-browse')
+const btnCancel = document.getElementById('btn-cancel')
+const btnSubmit = document.getElementById('btn-submit')
+const form = document.querySelector('form')
+
+const gamesListContainter = document.getElementById('games-list-containter')
+const inputName = document.getElementById('name')
+const inputDir = document.getElementById('path')
 
 var selectedGame = null;
 var isEditing = false;
