@@ -10,9 +10,9 @@ let windowMain;
 
 app.on('ready', function () {
     windowMain = new BrowserWindow({
-        width: 1310,
+        width: 1325,
         height: 800,
-        minWidth: 1310,
+        minWidth: 750,
         minHeight: 600,
         title: 'Prop Combine Tools',
         show: false,
