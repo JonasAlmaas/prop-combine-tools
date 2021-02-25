@@ -2,77 +2,63 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/sidebar.css">
-        <link rel="stylesheet" href="../styles/pages.css">
-        <link rel="stylesheet" href="../styles/preview.css">
-        <link rel="stylesheet" href="../styles/project_editor.css">
+        <link rel="stylesheet" href="../styles/pages/project_editor.css">
 
         <title>Prop Combine Tools</title>
     </head>
 
     <body>
-        <!-- SIDEBAR -->
-        <div class="sidebar-wrapper">
-            <div class="navbar">
-                <div class="navbar-item">
-                    <a class="noselect" href="home.html">Home</a>
-                </div>
-                <div class="navbar-item">
-                    <a class="noselect" href="games.html">Games</a>
-                </div>
-                <div class="navbar-item navbar-item-selected">
-                    <a class="noselect" href="projects.html">Projects</a>
-                </div>
-                <div class="navbar-item">
-                    <a class="noselect" href="guide.html">Guide</a>
-                </div>
-                <div class="navbar-item">
-                    <a class="noselect" href="resources.html">Resources</a>
-                </div>
-            </div>
-
-            <div class="footer">
-                <div class="footer-text noselect">Copyright © 2021</div>
-            </div>
-        </div>
-        <!-- MAIN PAGE CONTENT -->
         <div class="page-wrapper">
-            <div class="flexbox-container">
-                <div class="grid-layout">
-                    <div class="section-wrapper wrapper-game">
-                        <div class="section-title-wrapper title-Game">
-                            <div class="section-title noselect">Game</div>
+            <div class="grid-layout">
+                <div class="section-wrapper wrapper-name">
+                    <div class="section-title-wrapper title-name">
+                        <div class="section-title noselect">Name</div>
+                    </div>
+                    <div class="input-field-wrapper input-name">
+                        <input class="input-field center-text" type="text" id="input-name" spellcheck="false" value="Unnamed">
+                    </div>
+                </div>
+
+                <div class="section-wrapper wrapper-game">
+                    <div class="section-title-wrapper title-game">
+                        <div class="section-title noselect">Game</div>
+                    </div>
+                    <div class="dropdown-wrapper">
+                        <select class="dropdown-container noselect" id="game-select"></select>
+                    </div>
+                </div>
+
+                <div class="section-wrapper wrapper-clusters">
+                    <div class="section-title-wrapper title-clusters">
+                        <div class="section-title noselect">Clusters</div>
+                    </div>
+
+                    <div class="intractable-list-wrapper clusters-list-wrapper" id="clusters-list-wrapper"></div>
+
+                    <div class="tools-grid">
+                        <div class="btn-new">
+                            <button class="btn-style-1 noselect" id="btn-new">New</button>
+                        </div>
+                        <div class="btn-edit">
+                            <button class="btn-style-1 noselect" id="btn-edit">Edit</button>
+                        </div>
+                        <div class="btn-remove">
+                            <button class="btn-style-1 noselect" id="btn-remove">Remove</button>
                         </div>
                     </div>
-                    <div class="section-wrapper wrapper-clusters">
-                        <div class="section-title-wrapper title-clusters">
-                            <div class="section-title noselect">Clusters</div>
-                        </div>
-                        <div class="intractable-list-wrapper clusters-list-wrapper" id="clusters-list-wrapper"></div>
-                        <div class="tools-grid">
-                            <div class="new">
-                                <button class="btn-style-1 noselect" id="btn-new">New</button>
-                            </div>
-                            <div class="edit">
-                                <button class="btn-style-1 noselect" id="btn-edit">Edit</button>
-                            </div>
-                            <div class="remove">
-                                <button class="btn-style-1 noselect" id="btn-remove">Remove</button>
-                            </div>
-                        </div>
+                </div>
+
+                <div class="section-wrapper wrapper-preview">
+                    <div class="section-title-wrapper title-preview">
+                        <div class="section-title noselect">Preview</div>
                     </div>
-                    <div class="section-wrapper wrapper-preview">
-                        <div class="section-title-wrapper title-preview">
-                            <div class="section-title noselect">Preview</div>
-                        </div>
-                        <div class="preview-wrapper" id="preview-wrapper">
-                            <div class="preview-content" id="preview-content"></div>
-                        </div>
+                    <div class="preview-wrapper" id="preview-wrapper">
+                        <div class="preview-content" id="preview-content"></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <script src="../scripts/project_editor.js"></script>
+        <script src="../scripts/pages/project_editor.js"></script>
     </body>
 </html>
