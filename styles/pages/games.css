@@ -1,0 +1,83 @@
+.grid-layout {
+    display: grid;
+    grid-template-columns: 5px 1fr minmax(300px, 550px) 1fr 5px;
+    grid-template-rows: 5px 1fr 220px 5px;
+    grid-gap: 5px;
+    grid-template-areas:
+    " . . . . . "
+    " . . wrapper-games . . "
+    " . . wrapper-from . . "
+    ". . . . . ";
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper-blank {grid-area: wrapper-blank;}
+
+.title-games {grid-area: title-games;}
+.games-list-containter {grid-area: games-list-containter;}
+.wrapper-games {
+    display: grid;
+    grid-area: wrapper-games;
+    grid-template-rows: 50px 1fr 50px;
+    grid-template-areas:
+    " title-games "
+    " games-list-containter "
+    " tools-grid ";
+}
+
+.tools-grid {
+    border-color: var(--color-primary);
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    display: grid;
+    grid-area: tools-grid;
+    grid-template-columns: 1fr 1fr;
+}
+.btn-edit button {border-bottom-left-radius: 5px;}
+.btn-remove button {border-bottom-right-radius: 5px;}
+
+.title-name {grid-area: title-name;}
+.title-path {grid-area: title-path;}
+.wrapper-from {
+    display: grid;
+    grid-area: wrapper-from;
+    grid-template-rows: 50px 1fr 50px 1fr 50px;
+    grid-template-areas:
+    " wrapper-title-name "
+    " wrapper-input-name "
+    " wrapper-title-path "
+    " wrapper-game-path "
+    " edit-tools-grid ";
+}
+
+.wrapper-input-name {
+    padding: 5px;
+    grid-area: wrapper-input-name;
+}
+.wrapper-game-path {
+    padding: 5px;
+    display: grid;
+    grid-gap: 5px;
+    grid-area: wrapper-game-path;
+    grid-template-columns: 4fr 1fr;
+}
+
+.edit-tools-grid {
+    border-color: var(--color-primary);
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    display: grid;
+    grid-area: edit-tools-grid;
+    grid-template-columns: 1fr 1fr;
+}
+.btn-submit button {border-bottom-left-radius: 5px;}
+.btn-cancel button {border-bottom-right-radius: 5px;}
+
+.btn-browse button {background-color: var(--color-primary);}
+.btn-browse button:hover {background-color: var(--color-primaryDark);}
+
+.input-field {
+    background-color: var(--color-primary);
+    border-radius: 2px;
+}
