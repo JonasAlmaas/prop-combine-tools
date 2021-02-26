@@ -1,10 +1,10 @@
-const paths = require('./../scripts/paths.js')
-const sidebar = require('../scripts/sidebar.js')
-sidebar.create('projects')
-
-const preview = require('../scripts/preview.js');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
+
+const paths = require('./../scripts/paths.js')
+const preview = require('../scripts/preview.js');
+const sidebar = require('../scripts/sidebar.js')
+sidebar.create('projects')
 
 const profilesListContainter = document.getElementById('profiles-list-containter');
 const previewContent = document.getElementById('preview-content');
@@ -12,6 +12,12 @@ const previewContent = document.getElementById('preview-content');
 const btnNewProject = document.getElementById('btn-new');
 const btnEdit = document.getElementById('btn-edit');
 const btnRemove = document.getElementById('btn-remove');
+
+// 
+// 
+// NEED A BUTTON TO MAKE THE FILES!!!!!
+// 
+// 
 
 var selectedProject = null;
 
@@ -26,12 +32,8 @@ btnRemove.addEventListener('click', (e) => {
     if (selectedProject !== null) {
         var data = fs.readFileSync(paths.projects);
         var jsonData = JSON.parse(data);
-
         delete jsonData[selectedProject];
-
-        var data = JSON.stringify(jsonData, null, 4);
-        fs.writeFileSync(paths.projects, data);
-
+        fs.writeFileSync(paths.projects, JSON.stringify(jsonData, null, 4));
         selectedProject = null;
         updateProjectsList();
         updatePreview();
