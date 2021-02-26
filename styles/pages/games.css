@@ -1,13 +1,12 @@
 .page-grid-layout {
     display: grid;
-    grid-template-columns: 5px 1fr minmax(300px, 550px) 1fr 5px;
-    grid-template-rows: 5px 1fr 220px 5px;
+    grid-template-columns: 0 1fr minmax(300px, 550px) 1fr 0;
+    grid-template-rows: 0 1fr 180px 0;
     grid-gap: 5px;
     grid-template-areas:
     " . . . . . "
     " . . wrapper-games . . "
-    " . . wrapper-from . . "
-    ". . . . . ";
+    " . . wrapper-from . . ";
     height: 100%;
     width: 100%;
 }
@@ -42,7 +41,7 @@
 .wrapper-from {
     display: grid;
     grid-area: wrapper-from;
-    grid-template-rows: 50px 1fr 50px 1fr 50px;
+    grid-template-rows: 30px 1fr 30px 1fr 50px;
     grid-template-areas:
     " wrapper-title-name "
     " wrapper-input-name "
