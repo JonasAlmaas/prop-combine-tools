@@ -12,7 +12,7 @@ app.on('ready', function () {
     windowMain = new BrowserWindow({
         width: 1325,
         height: 800,
-        minWidth: 750,
+        minWidth: 1200,
         minHeight: 600,
         title: 'Prop Combine Tools',
         show: false,
