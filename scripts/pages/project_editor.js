@@ -1,14 +1,10 @@
+const paths = require('./../scripts/paths.js')
 const sidebar = require('../scripts/sidebar.js')
 sidebar.create('projects')
 
 const preview = require('../scripts/preview.js');
 const fs = require('fs');
-const path = require('path');
 const { v4: uuidv4 } = require('uuid');
-
-const dataFolderPath = path.resolve(__dirname, '../data');
-const projectDataPath = path.resolve(dataFolderPath, 'projectData.json');
-const gamesPath = path.resolve(dataFolderPath, 'games.json');
 
 const btnNewCluster = document.getElementById('btn-new');
 const btnEditCluster = document.getElementById('btn-edit');
@@ -31,13 +27,13 @@ btnEditCluster.addEventListener('click', (e) => {
 })
 btnRemoveCluster.addEventListener('click', (e) => {
     if (selectedCluster !== null) {
-        var data = fs.readFileSync(projectDataPath);
+        var data = fs.readFileSync(paths.projects);
         var jsonData = JSON.parse(data);
 
         delete jsonData[activeProject]['clusters'][selectedCluster];
 
         var data = JSON.stringify(jsonData, null, 4);
-        fs.writeFileSync(projectDataPath, data);
+        fs.writeFileSync(paths.projects, data);
 
         selectedCluster = null;
         updateClusterList();
@@ -46,22 +42,22 @@ btnRemoveCluster.addEventListener('click', (e) => {
 })
 
 dropdownGamesList.addEventListener('change', (e) => {
-    var jsonData = JSON.parse(fs.readFileSync(projectDataPath));
+    var jsonData = JSON.parse(fs.readFileSync(paths.projects));
 
     jsonData[activeProject]['game'] = dropdownGamesList.value;
 
     var data = JSON.stringify(jsonData, null, 4);
-    fs.writeFileSync(projectDataPath, data);
+    fs.writeFileSync(paths.projects, data);
     updatePreview();
 })
 
 inputName.addEventListener('change', (e) => {
-    var jsonData = JSON.parse(fs.readFileSync(projectDataPath));
+    var jsonData = JSON.parse(fs.readFileSync(paths.projects));
 
     jsonData[activeProject]['name'] = inputName.value;
 
     var data = JSON.stringify(jsonData, null, 4);
-    fs.writeFileSync(projectDataPath, data);
+    fs.writeFileSync(paths.projects, data);
 })
 
 function edit() {
@@ -72,10 +68,10 @@ function edit() {
 }
 
 function checkForNewProfile() {
-    if (fs.existsSync(projectDataPath) == false) {
+    if (fs.existsSync(paths.projects) == false) {
         var jsonData = {};
     } else {
-        var jsonData = JSON.parse(fs.readFileSync(projectDataPath));
+        var jsonData = JSON.parse(fs.readFileSync(paths.projects));
     }
     
     var newProject = true;
@@ -94,19 +90,19 @@ function checkForNewProfile() {
             }
         }
         var data = JSON.stringify(jsonData, null, 4);
-        fs.writeFileSync(projectDataPath, data);
+        fs.writeFileSync(paths.projects, data);
     }
 }
 
 function main() {
     checkForNewProfile();
-    var jsonData = JSON.parse(fs.readFileSync(projectDataPath));
+    var jsonData = JSON.parse(fs.readFileSync(paths.projects));
     
     // Update games list
     dropdownGamesList.innerHTML = '';
 
-    if (fs.existsSync(gamesPath)) {
-        var jsonDataGames = JSON.parse(fs.readFileSync(gamesPath));
+    if (fs.existsSync(paths.games)) {
+        var jsonDataGames = JSON.parse(fs.readFileSync(paths.games));
 
         const option = document.createElement('option');
         option.value = 'none';
@@ -140,7 +136,7 @@ function main() {
         jsonData[activeProject]['game'] = 'none';
 
         var data = JSON.stringify(jsonData, null, 4);
-        fs.writeFileSync(projectDataPath, data);
+        fs.writeFileSync(paths.projects, data);
     }
 
     dropdownGamesList.value = jsonData[activeProject]['game'];
@@ -152,8 +148,8 @@ function main() {
 function updateClusterList() {
     if (activeProject !== null) {
         clustersListWrapper.innerHTML = '';
-        if (fs.existsSync(projectDataPath)) {
-            var jsonData = JSON.parse(fs.readFileSync(projectDataPath));
+        if (fs.existsSync(paths.projects)) {
+            var jsonData = JSON.parse(fs.readFileSync(paths.projects));
     
             for (var key in jsonData[activeProject]['clusters']) {
                 const button = document.createElement('button');
