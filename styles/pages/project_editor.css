@@ -1,13 +1,13 @@
+.navbar-top {grid-area: navbar-top;}
 .page-grid-layout {
     display: grid;
-    grid-template-columns: 5px 1fr 1fr 2fr 5px;
-    grid-template-rows: 5px 100px 1fr 5px;
+    grid-template-columns: 0 1fr 1fr 2fr 0;
+    grid-template-rows: 20px 65px 1fr 0;
     grid-gap: 5px;
     grid-template-areas:
-    " . . . . . "
+    " navbar-top navbar-top navbar-top navbar-top navbar-top "
     " . wrapper-name wrapper-game wrapper-preview . "
-    " . wrapper-clusters wrapper-clusters wrapper-preview . "
-    ". . . . . ";
+    " . wrapper-clusters wrapper-clusters wrapper-preview . ";
     height: 100%;
     width: 100%;
 }
@@ -17,7 +17,7 @@
 .wrapper-name {
     display: grid;
     grid-area: wrapper-name;
-    grid-template-rows: 50px 1fr;
+    grid-template-rows: 30px 1fr;
     grid-template-areas:
     " title-name "
     " input-name ";
@@ -28,7 +28,7 @@
 .wrapper-game {
     display: grid;
     grid-area: wrapper-game;
-    grid-template-rows: 50px 1fr;
+    grid-template-rows: 30px 1fr;
     grid-template-areas:
     " title-game "
     " dropdown-wrapper ";
@@ -47,6 +47,7 @@
 }
 
 .title-preview {grid-area: title-preview;}
+.preview-wrapper {grid-area: preview-wrapper;}
 .wrapper-preview {
     display: grid;
     grid-area: wrapper-preview;
@@ -55,8 +56,6 @@
     " title-preview "
     " preview-wrapper ";
 }
-
-.preview-wrapper {grid-area: preview-wrapper;}
 
 .tools-grid {
     border-color: var(--color-primary);
