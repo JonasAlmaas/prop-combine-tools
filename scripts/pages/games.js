@@ -1,10 +1,10 @@
-const paths = require('./../scripts/paths.js')
-const sidebar = require('../scripts/sidebar.js')
-sidebar.create('games')
-
 const dialog = require("electron").remote.dialog
 const fs = require('fs')
 const { v4: uuidv4 } = require('uuid')
+
+const paths = require('./../scripts/paths.js')
+const sidebar = require('../scripts/sidebar.js')
+sidebar.create('games')
 
 const btnEdit = document.getElementById('btn-edit')
 const btnRemove = document.getElementById('btn-remove')
@@ -27,12 +27,8 @@ btnRemove.addEventListener('click', (e) => {
     if (selectedGame !== null) {
         var data = fs.readFileSync(paths.games);
         var jsonData = JSON.parse(data);
-
         delete jsonData[selectedGame];
-
-        var data = JSON.stringify(jsonData, null, 4);
-        fs.writeFileSync(paths.games, data);
-
+        fs.writeFileSync(paths.games, JSON.stringify(jsonData, null, 4));
         selectedGame = null;
         updateGamesList();
     }
@@ -55,10 +51,6 @@ btnCancel.addEventListener('click', (e) => {
 form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    if (fs.existsSync(paths.appdata) == false) {
-        fs.mkdirSync(paths.appdata);
-    }
-
     if (fs.existsSync(paths.games)) {
         var data = fs.readFileSync(paths.games);
         var jsonData = JSON.parse(data);
@@ -80,8 +72,7 @@ form.addEventListener('submit', function (e) {
         path: gameDir
     };
 
-    var data = JSON.stringify(jsonData, null, 4);
-    fs.writeFileSync(paths.games, data);
+    fs.writeFileSync(paths.games, JSON.stringify(jsonData, null, 4));
 
     disableEditing();
     clearInputs();
