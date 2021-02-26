@@ -1,13 +1,10 @@
+const paths = require('./../scripts/paths.js')
 const sidebar = require('../scripts/sidebar.js')
 sidebar.create('games')
 
 const dialog = require("electron").remote.dialog
 const fs = require('fs')
-const path = require('path')
 const { v4: uuidv4 } = require('uuid')
-
-const dataFolderPath = path.resolve(__dirname, '../data')
-const gamesPath = path.resolve(dataFolderPath, 'games.json')
 
 const btnEdit = document.getElementById('btn-edit')
 const btnRemove = document.getElementById('btn-remove')
@@ -28,13 +25,13 @@ btnEdit.addEventListener('click', (e) => {
 })
 btnRemove.addEventListener('click', (e) => {
     if (selectedGame !== null) {
-        var data = fs.readFileSync(gamesPath);
+        var data = fs.readFileSync(paths.games);
         var jsonData = JSON.parse(data);
 
         delete jsonData[selectedGame];
 
         var data = JSON.stringify(jsonData, null, 4);
-        fs.writeFileSync(gamesPath, data);
+        fs.writeFileSync(paths.games, data);
 
         selectedGame = null;
         updateGamesList();
@@ -58,12 +55,12 @@ btnCancel.addEventListener('click', (e) => {
 form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    if (fs.existsSync(dataFolderPath) == false) {
-        fs.mkdirSync(dataFolderPath);
+    if (fs.existsSync(paths.appdata) == false) {
+        fs.mkdirSync(paths.appdata);
     }
 
-    if (fs.existsSync(gamesPath)) {
-        var data = fs.readFileSync(gamesPath);
+    if (fs.existsSync(paths.games)) {
+        var data = fs.readFileSync(paths.games);
         var jsonData = JSON.parse(data);
     } else {
         jsonData = {}
@@ -84,7 +81,7 @@ form.addEventListener('submit', function (e) {
     };
 
     var data = JSON.stringify(jsonData, null, 4);
-    fs.writeFileSync(gamesPath, data);
+    fs.writeFileSync(paths.games, data);
 
     disableEditing();
     clearInputs();
@@ -92,7 +89,7 @@ form.addEventListener('submit', function (e) {
 
 function edit() {
     if (selectedGame !== null) {
-        var data = fs.readFileSync(gamesPath);
+        var data = fs.readFileSync(paths.games);
         var jsonData = JSON.parse(data);
 
         inputName.value = jsonData[selectedGame]['name'];
@@ -120,8 +117,8 @@ function clearInputs() {
 
 function updateGamesList() {
     gamesListContainter.innerHTML = '';
-    if (fs.existsSync(gamesPath)) {
-        var data = fs.readFileSync(gamesPath);
+    if (fs.existsSync(paths.games)) {
+        var data = fs.readFileSync(paths.games);
         var jsonData = JSON.parse(data);
 
         for (var key in jsonData) {
