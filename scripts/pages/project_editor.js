@@ -1,10 +1,10 @@
-const paths = require('./../scripts/paths.js')
-const sidebar = require('../scripts/sidebar.js')
-sidebar.create('projects')
-
-const preview = require('../scripts/preview.js');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
+
+const paths = require('./../scripts/paths.js')
+const preview = require('../scripts/preview.js');
+const sidebar = require('../scripts/sidebar.js')
+sidebar.create('projects')
 
 const btnNewCluster = document.getElementById('btn-new');
 const btnEditCluster = document.getElementById('btn-edit');
@@ -27,14 +27,9 @@ btnEditCluster.addEventListener('click', (e) => {
 })
 btnRemoveCluster.addEventListener('click', (e) => {
     if (selectedCluster !== null) {
-        var data = fs.readFileSync(paths.projects);
-        var jsonData = JSON.parse(data);
-
+        var jsonData = JSON.parse(fs.readFileSync(paths.projects));
         delete jsonData[activeProject]['clusters'][selectedCluster];
-
-        var data = JSON.stringify(jsonData, null, 4);
-        fs.writeFileSync(paths.projects, data);
-
+        fs.writeFileSync(paths.projects, JSON.stringify(jsonData, null, 4));
         selectedCluster = null;
         updateClusterList();
         updatePreview();
@@ -43,21 +38,15 @@ btnRemoveCluster.addEventListener('click', (e) => {
 
 dropdownGamesList.addEventListener('change', (e) => {
     var jsonData = JSON.parse(fs.readFileSync(paths.projects));
-
     jsonData[activeProject]['game'] = dropdownGamesList.value;
-
-    var data = JSON.stringify(jsonData, null, 4);
-    fs.writeFileSync(paths.projects, data);
+    fs.writeFileSync(paths.projects, JSON.stringify(jsonData, null, 4));
     updatePreview();
 })
 
 inputName.addEventListener('change', (e) => {
     var jsonData = JSON.parse(fs.readFileSync(paths.projects));
-
     jsonData[activeProject]['name'] = inputName.value;
-
-    var data = JSON.stringify(jsonData, null, 4);
-    fs.writeFileSync(paths.projects, data);
+    fs.writeFileSync(paths.projects, JSON.stringify(jsonData, null, 4));
 })
 
 function edit() {
@@ -89,8 +78,7 @@ function checkForNewProfile() {
             "clusters": {
             }
         }
-        var data = JSON.stringify(jsonData, null, 4);
-        fs.writeFileSync(paths.projects, data);
+        fs.writeFileSync(paths.projects, JSON.stringify(jsonData, null, 4));
     }
 }
 
@@ -134,9 +122,7 @@ function main() {
     }
     if (!isValidGame) {
         jsonData[activeProject]['game'] = 'none';
-
-        var data = JSON.stringify(jsonData, null, 4);
-        fs.writeFileSync(paths.projects, data);
+        fs.writeFileSync(paths.projects, JSON.stringify(jsonData, null, 4));
     }
 
     dropdownGamesList.value = jsonData[activeProject]['game'];
@@ -146,34 +132,33 @@ function main() {
 }
 
 function updateClusterList() {
-    if (activeProject !== null) {
-        clustersListWrapper.innerHTML = '';
-        if (fs.existsSync(paths.projects)) {
-            var jsonData = JSON.parse(fs.readFileSync(paths.projects));
-    
-            for (var key in jsonData[activeProject]['clusters']) {
-                const button = document.createElement('button');
-                if (key == selectedCluster) {
-                    button.className = 'intractable-list-item active-intractable-list-item noselect';
-                } else {
-                    button.className = 'intractable-list-item noselect';
-                }
-                button.id = key;
-                button.onclick = function () {
-                    selectedCluster = button.id;
-                    updateClusterList();
-                }
-                button.addEventListener('dblclick', (e) => {
-                    edit();
-                })
+    clustersListWrapper.innerHTML = '';
 
-                var labelName = document.createElement('label');
-                labelName.innerHTML  = jsonData[activeProject]['clusters'][key]['name'];
+    if (fs.existsSync(paths.projects)) {
+        var jsonData = JSON.parse(fs.readFileSync(paths.projects));
 
-                button.appendChild(labelName);
-
-                clustersListWrapper.appendChild(button);
+        for (var key in jsonData[activeProject]['clusters']) {
+            const button = document.createElement('button');
+            if (key == selectedCluster) {
+                button.className = 'intractable-list-item active-intractable-list-item noselect';
+            } else {
+                button.className = 'intractable-list-item noselect';
             }
+            button.id = key;
+            button.onclick = function () {
+                selectedCluster = button.id;
+                updateClusterList();
+            }
+            button.addEventListener('dblclick', (e) => {
+                edit();
+            })
+
+            var labelName = document.createElement('label');
+            labelName.innerHTML  = jsonData[activeProject]['clusters'][key]['name'];
+
+            button.appendChild(labelName);
+
+            clustersListWrapper.appendChild(button);
         }
     }
 }
