@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/pages/cluster_editor.css">
+
+        <title>Prop Combine Tools</title>
+    </head>
+
+    <body>
+        <div class="page-wrapper">
+            <div class="page-grid-layout">
+                <div class="navbar-top">
+                    <a href="projects.html" class="navbar-top-item noselect">Projects</a>
+                    <a href="#" class="navbar-top-item-divider noselect">></a>
+                    <a href="project_editor.html" class="navbar-top-item noselect">Project Editor</a>
+                    <a href="#" class="navbar-top-item-divider noselect">></a>
+                    <a href="#" class="navbar-top-item noselect">Cluster Editor</a>
+                </div>
+
+                <div class="section-wrapper wrapper-name">
+                    <div class="section-title-wrapper title-name">
+                        <div class="small-section-title noselect">Name</div>
+                    </div>
+                    <div class="input-field-wrapper input-name">
+                        <input class="input-field center-text" type="text" id="input-name" spellcheck="false" value="new_cluster">
+                    </div>
+                </div>
+
+                <div class="section-wrapper wrapper-clst-lmt">
+                    <div class="section-title-wrapper title-clst-lmt">
+                        <div class="small-section-title noselect">Combine Limit</div>
+                    </div>
+                    <div class="input-field-wrapper input-clst-lmt">
+                        <input class="input-field center-text" type="number" id="input-clst-lmt" spellcheck="false" value="64">
+                    </div>
+                </div>
+
+                <div class="section-wrapper wrapper-dist-lmt">
+                    <div class="section-title-wrapper title-dist-lmt">
+                        <div class="small-section-title noselect">Distance Limit</div>
+                    </div>
+                    <div class="input-field-wrapper input-dist-lmt">
+                        <input class="input-field center-text" type="number" id="input-dist-lmt" spellcheck="false" value="500">
+                    </div>
+                </div>
+
+                <div class="section-wrapper wrapper-sur-prop">
+                    <div class="section-title-wrapper title-sur-prop">
+                        <div class="small-section-title noselect">Surface Prop</div>
+                    </div>
+                    <div class="dropdown-wrapper">
+                        <select class="dropdown-container noselect" id="sur-prop-select"></select>
+                    </div>
+                </div>
+
+                <div class="section-wrapper wrapper-mat-path">
+                    <div class="section-title-wrapper title-mat-path">
+                        <div class="small-section-title noselect">Material Path</div>
+                    </div>
+                    <div class="input-field-wrapper input-mat-path">
+                        <input class="input-field center-text" type="text" id="input-mat-path" spellcheck="false" value="models">
+                    </div>
+                    <div class="btn-browse">
+                        <button class="btn-style-1 noselect" type="button" id="btn-browse">Browse...</button>
+                    </div>
+                </div>
+
+                <div class="section-wrapper wrapper-models">
+                    <div class="section-title-wrapper title-models">
+                        <div class="section-title noselect">Models</div>
+                    </div>
+
+                    <div class="intractable-list-wrapper models-list-wrapper" id="models-list-wrapper"></div>
+
+                    <div class="tools-grid">
+                        <div class="btn-new">
+                            <button class="btn-style-1 noselect" id="btn-new">Add</button>
+                        </div>
+                        <div class="btn-remove">
+                            <button class="btn-style-1 noselect" id="btn-remove">Remove</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-wrapper wrapper-preview">
+                    <div class="section-title-wrapper title-preview">
+                        <div class="section-title noselect">Preview</div>
+                    </div>
+                    <div class="preview-wrapper" id="preview-wrapper">
+                        <div class="preview-content" id="preview-content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="../scripts/pages/cluster_editor.js"></script>
+    </body>
+</html>
