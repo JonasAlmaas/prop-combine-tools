@@ -1,12 +1,11 @@
 .page-grid-layout {
     display: grid;
-    grid-template-columns: 5px 1fr 1fr 5px;
-    grid-template-rows: 5px 1fr 5px;
+    grid-template-columns: 0 1fr 1fr 0;
+    grid-template-rows: 0 1fr 0;
     grid-gap: 5px;
     grid-template-areas:
     " . . . . "
-    " . wrapper-projects wrapper-preview . "
-    ". . . . ";
+    " . wrapper-projects wrapper-preview . ";
     height: 100%;
     width: 100%;
 }
