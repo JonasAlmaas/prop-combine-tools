@@ -1,4 +1,4 @@
-.grid-layout {
+.page-grid-layout {
     display: grid;
     grid-template-columns: 5px 1fr 1fr 2fr 5px;
     grid-template-rows: 5px 100px 1fr 5px;
