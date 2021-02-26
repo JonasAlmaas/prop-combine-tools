@@ -1,14 +1,10 @@
+const paths = require('./../scripts/paths.js')
 const sidebar = require('../scripts/sidebar.js')
 sidebar.create('projects')
 
 const preview = require('../scripts/preview.js');
 const fs = require('fs');
-const path = require('path');
 const { v4: uuidv4 } = require('uuid');
-
-const dataFolderPath = path.resolve(__dirname, '../data');
-const projectDataPath = path.resolve(dataFolderPath, 'projectData.json');
-const gamesPath = path.resolve(dataFolderPath, 'games.json');
 
 const profilesListContainter = document.getElementById('profiles-list-containter');
 const previewContent = document.getElementById('preview-content');
@@ -28,13 +24,13 @@ btnEdit.addEventListener('click', (e) => {
 })
 btnRemove.addEventListener('click', (e) => {
     if (selectedProject !== null) {
-        var data = fs.readFileSync(projectDataPath);
+        var data = fs.readFileSync(paths.projects);
         var jsonData = JSON.parse(data);
 
         delete jsonData[selectedProject];
 
         var data = JSON.stringify(jsonData, null, 4);
-        fs.writeFileSync(projectDataPath, data);
+        fs.writeFileSync(paths.projects, data);
 
         selectedProject = null;
         updateProjectsList();
@@ -51,8 +47,8 @@ function edit() {
 
 function updateProjectsList() {
     profilesListContainter.innerHTML = '';
-    if (fs.existsSync(projectDataPath)) {
-        var jsonData = JSON.parse(fs.readFileSync(projectDataPath));
+    if (fs.existsSync(paths.projects)) {
+        var jsonData = JSON.parse(fs.readFileSync(paths.projects));
 
         for (var key in jsonData) {
             const button = document.createElement('button');
@@ -76,8 +72,8 @@ function updateProjectsList() {
     
             var labelPath = document.createElement('label');
 
-            if (fs.existsSync(projectDataPath)) {
-                var jsonDataGames = JSON.parse(fs.readFileSync(gamesPath));
+            if (fs.existsSync(paths.projects)) {
+                var jsonDataGames = JSON.parse(fs.readFileSync(paths.games));
 
                 try {
                     labelPath.innerHTML  = jsonDataGames[jsonData[key]['game']]['path'];
