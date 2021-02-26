@@ -6,7 +6,6 @@ const projects = path.resolve(appdata, 'projects.json')
 const games = path.resolve(appdata, 'games.json')
 
 module.exports = {
-    appdata,
     projects,
     games
 }
