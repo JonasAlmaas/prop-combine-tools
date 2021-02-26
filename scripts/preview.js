@@ -1,11 +1,8 @@
+const paths = require('./../scripts/paths.js')
 const fs = require('fs')
-const path = require('path')
-
-const dataFolderPath = path.resolve(__dirname, '../data')
-const projectDataPath = path.resolve(dataFolderPath, 'projectData.json')
 
 var project = (project) => {
-    var jsonData = JSON.parse(fs.readFileSync(projectDataPath));
+    var jsonData = JSON.parse(fs.readFileSync(paths.projects));
 
     const containter = document.createElement('div')
 
