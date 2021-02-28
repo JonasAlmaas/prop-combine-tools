@@ -2,13 +2,14 @@
 .page-grid-layout {
     display: grid;
     grid-template-columns: 0 1fr 1fr 1fr 1fr 1fr 1fr 6fr 0;
-    grid-template-rows: 20px 65px 65px 1fr 0;
+    grid-template-rows: 20px 65px 65px 65px 1fr 0;
     grid-gap: 5px;
     grid-template-areas:
     " a a a a a a a a a "
-    " . b b c c d d i . "
-    " . e e e f f f i . "
-    " . g g g g g g i . ";
+    " . b b b c c c i . "
+    " . d d d e e e i . "
+    " . f f f g g g i . "
+    " . h h h h h h i . ";
     height: 100%;
     width: 100%;
 }
@@ -24,11 +25,25 @@
     " input-name ";
 }
 
+.title-mat-path {grid-area: title-mat-path;}
+.input-mat-path {grid-area: input-mat-path;}
+.btn-browse {grid-area: btn-browse;}
+.wrapper-mat-path {
+    display: grid;
+    grid-area: c;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 30px 1fr;
+    grid-template-areas:
+    " title-mat-path title-mat-path "
+    " input-mat-path btn-browse ";
+}
+
+
 .title-clst-lmt {grid-area: title-clst-lmt;}
 .input-clst-lmt {grid-area: input-clst-lmt;}
 .wrapper-clst-lmt {
     display: grid;
-    grid-area: c;
+    grid-area: d;
     grid-template-rows: 30px 1fr;
     grid-template-areas:
     " title-clst-lmt "
@@ -39,7 +54,7 @@
 .input-dist-lmt {grid-area: input-dist-lmt;}
 .wrapper-dist-lmt {
     display: grid;
-    grid-area: d;
+    grid-area: e;
     grid-template-rows: 30px 1fr;
     grid-template-areas:
     " title-dist-lmt "
@@ -50,31 +65,35 @@
 .input-sur-prop {grid-area: input-sur-prop;}
 .wrapper-sur-prop {
     display: grid;
-    grid-area: e;
+    grid-area: f;
     grid-template-rows: 30px 1fr;
     grid-template-areas:
     " title-sur-prop "
     " input-sur-prop ";
 }
 
-.title-mat-path {grid-area: title-mat-path;}
-.input-mat-path {grid-area: input-mat-path;}
-.btn-browse {grid-area: btn-browse;}
-.wrapper-mat-path {
+.title-use-phys {grid-area: title-use-phys;}
+.wrapper-use-phys {
     display: grid;
-    grid-area: f;
-    grid-template-columns: 3fr 1fr;
+    grid-area: g;
     grid-template-rows: 30px 1fr;
     grid-template-areas:
-    " title-mat-path title-mat-path "
-    " input-mat-path btn-browse ";
+    " title-use-phys "
+    " input-use-phys ";
+}
+
+.input-use-phys {
+    align-items: center;
+    display: flex;
+    grid-area: input-use-phys;
+    justify-content: center;
 }
 
 .title-models {grid-area: title-models;}
 .models-list-wrapper {grid-area: models-list-wrapper;}
 .wrapper-models {
     display: grid;
-    grid-area: g;
+    grid-area: h;
     grid-template-rows: 50px 1fr 50px;
     grid-template-areas:
     " title-models "
