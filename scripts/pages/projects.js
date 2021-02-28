@@ -12,10 +12,11 @@ const previewContent = document.getElementById('preview-content');
 const btnNewProject = document.getElementById('btn-new');
 const btnEdit = document.getElementById('btn-edit');
 const btnRemove = document.getElementById('btn-remove');
+const btGenFiles = document.getElementById('btn-gen-files');
 
 // 
 // 
-// NEED A BUTTON TO MAKE THE FILES!!!!!
+// NEED A BUTTON TO MAKE THE FILES!!!!!     btGenFiles
 // 
 // 
 
