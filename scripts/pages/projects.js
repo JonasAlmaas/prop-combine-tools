@@ -2,6 +2,7 @@ const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 
 const paths = require('./../scripts/paths.js')
+const fileWriter = require('./../scripts/fileWriter.js')
 const preview = require('../scripts/preview.js');
 const sidebar = require('../scripts/sidebar.js')
 sidebar.create('projects')
@@ -14,13 +15,13 @@ const btnEdit = document.getElementById('btn-edit');
 const btnRemove = document.getElementById('btn-remove');
 const btGenFiles = document.getElementById('btn-gen-files');
 
-// 
-// 
-// NEED A BUTTON TO MAKE THE FILES!!!!!     btGenFiles
-// 
-// 
-
 var selectedProject = null;
+
+btGenFiles.addEventListener('click', (e) => {
+    if (selectedProject !== null) {
+        fileWriter.generateFiles(selectedProject)
+    }
+})
 
 btnNewProject.addEventListener('click', (e) => {
     localStorage.setItem("selectedProject", uuidv4());
