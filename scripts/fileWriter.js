@@ -1,50 +1,88 @@
+const path = require('path');
+const fs = require('fs');
+
 const paths = require('./../scripts/paths.js')
 
-const path = require('path');
-const fs = require('fs')
-
+var projectsJsonData = null
+var gamesJsonData = null
 
 var generateFiles = (selectedProject) => {
+    readJsonData()
+
+    let write = new Writer(selectedProject)
+
+    write.line('"combine rules"')
+    write.line('{')
+
+    for (var cluster in projectsJsonData[selectedProject]['clusters']) {
+        cluster = projectsJsonData[selectedProject]['clusters'][cluster]
+
+        write.line('   "' + cluster['name'] + '"')
+        write.line('   {')
+        write.line('       "qc_template_path" scripts/hammer/spcombinerules/qc_templates/' + cluster['name'] + '_cluster.qc')
+        write.line('')
+
+        write.line('       "cluster_limit" ' + cluster['clusterLimit'])
+        write.line('')
+
+        write.line('       "distance_limit" ' + cluster['distanceLimit'])
+        write.line('')
+
+        write.line('       "peers"')
+        write.line('       {')
+        for (var mdl in cluster['peers']) {
+            write.line('           "' + cluster['peers'][mdl].replace(/\\/g, '/') + '" ""')
+        }
+        write.line('       }')
+
+        write.line('   }')
+
+        // Generate qc file
+        write.setQcFile(cluster['name'])
+        write.qcLine('$staticprop')
+        write.qcLine('$surfaceprop "' + cluster['surfaceProp'] + '"')
+        write.qcLine('')
+        write.qcLine('$cdmaterials "' + cluster['materialPath'] + '"')
+    }
+    write.line('}')
+}
+
+class Writer {
+    constructor(selectedProject) {
+        this.gamePath = gamesJsonData[projectsJsonData[selectedProject]['game']]['path']
+        var spcombinerulesPath = path.resolve(this.gamePath, 'scripts/hammer/spcombinerules')
+        this.spcombinerulesFile = path.resolve(spcombinerulesPath, 'spcombinerules.txt')
+        this.qcPath = path.resolve(this.gamePath, 'scripts/hammer/spcombinerules/qc_templates')
+
+        if (!fs.existsSync(spcombinerulesPath)) {
+            fs.mkdirSync(spcombinerulesPath, { recursive: true })
+        }
+
+        if (fs.existsSync(this.qcPath)) {
+            fs.rmdirSync(this.qcPath, { recursive: true })
+        }
+        fs.mkdirSync(this.qcPath, { recursive: true })
+
+        fs.writeFileSync(this.spcombinerulesFile, "")
+    }
+    setQcFile (clusterName) {
+        this.qcFile = path.resolve(this.qcPath, clusterName + '_cluster.qc')
+        fs.writeFileSync(this.qcFile, "")
+    }
+    line(text) {
+        fs.appendFileSync(this.spcombinerulesFile, text + '\n')
+    }
+    qcLine(text) {
+        fs.appendFileSync(this.qcFile, text + '\n')
+    }
+}
+
+function readJsonData() {
     var data = fs.readFileSync(paths.projects)
-    const projectsJsonData = JSON.parse(data)
+    projectsJsonData = JSON.parse(data)
 
     var data = fs.readFileSync(paths.games)
-    const gamesJsonData = JSON.parse(data)
-
-    const gamePath = gamesJsonData[projectsJsonData[selectedProject]['game']]['path']
-    const spcombinerulesPath = path.resolve(gamePath, 'scripts/hammer/spcombinerules/spcombinerules.txt')
-
-    console.log(gamePath)
-    console.log(spcombinerulesPath)
-
-    fs.writeFile(spcombinerulesPath, "test")
-
-    // create a file I guess
+    gamesJsonData = JSON.parse(data)
 }
 
 exports.generateFiles = generateFiles;
-
-
-// fs.appendFile()
-
-// var clstname = null
-// var clstLmt = null
-// var dstLmt = null
-// var mdl = null
-// '"combine rules"'
-// '{'
-// '   "small_rocks_01"'
-// '   {'
-// '       "qc_template_path" scripts/hammer/spcombinerules/qc_templates/' + clstname + '.qc'
-// '       "cluster_limit" ' + clstLmt
-// '       "distance_limit" ' + dstLmt
-// '       "peers"'
-// '       {'
-// '           "' + mdl + '" ""'
-// '       }'
-// '   }'
-// '}'
-
-
-// // scripts\hammer\spcombinerules
-// // qc_templates
