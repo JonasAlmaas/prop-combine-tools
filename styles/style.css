@@ -30,7 +30,7 @@ html {
 }
 
 body {
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 button {
@@ -96,8 +96,69 @@ label::selection {
     appearance: none;
     background-color: var(--color-primaryDark);
     height: 100%;
+    width: 100%;
     padding: 0 20px;
     text-align-last:center;
+}
+
+/* ALERTS */
+.alert-wrapper {
+    position: absolute;
+    z-index: 500;
+    padding: 13px 50px 13px 20px;
+    min-width: 300px;
+    top: 10px;
+    right: 0;
+
+    border-radius: 5px 0 0 5px;
+    border-style: solid;
+    border-width: 0 0 0 7px;
+}
+
+.alert-msg {
+    font-size: 23px;
+    color: rgb(34, 34, 34);
+}
+
+.alert-success {
+    background-color: rgb(84, 212, 112);
+    border-color: rgb(54, 151, 78);
+}
+
+.alert-warning {
+    background-color: rgb(223, 195, 104);
+    border-color: rgb(197, 167, 68);
+}
+
+.alert-error {
+    background-color: rgb(214, 91, 91);
+    border-color: rgb(187, 67, 67);
+}
+
+.alert-wrapper.show {
+    animation: show_slide 500ms ease forwards;
+}
+@keyframes show_slide {
+    0% {
+        transform: translateX(100%);
+    }
+    60% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(5%);
+    }
+}
+.alert-wrapper.hide {
+    animation: hide_slide 250ms ease forwards;
+}
+@keyframes hide_slide {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 /* INPUT FIELD  */
