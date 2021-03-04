@@ -29,7 +29,7 @@ app.on('ready', function () {
     windowMain.setMenuBarVisibility(false);
 
     windowMain.loadURL(url.format({
-        pathname: path.join(__dirname, '../pages/home.html'),
+        pathname: path.join(__dirname, '../pages/guide.html'),
         protocol: 'file:',
         slashes: true
     }));
