@@ -2,14 +2,13 @@
 .page-grid-layout {
     display: grid;
     grid-template-columns: 0 1fr 1fr 1fr 1fr 1fr 1fr 6fr 0;
-    grid-template-rows: 20px 65px 65px 65px 1fr 0;
+    grid-template-rows: 20px 65px 65px 1fr 0;
     grid-gap: 5px;
     grid-template-areas:
     " a a a a a a a a a "
-    " . b b b c c c i . "
-    " . d d d e e e i . "
-    " . f f f g g g i . "
-    " . h h h h h h i . ";
+    " . b b b c c c h . "
+    " . d d e e f f h . "
+    " . g g g g g g h . ";
     height: 100%;
     width: 100%;
 }
@@ -72,28 +71,11 @@
     " input-sur-prop ";
 }
 
-.title-use-phys {grid-area: title-use-phys;}
-.wrapper-use-phys {
-    display: grid;
-    grid-area: g;
-    grid-template-rows: 30px 1fr;
-    grid-template-areas:
-    " title-use-phys "
-    " input-use-phys ";
-}
-
-.input-use-phys {
-    align-items: center;
-    display: flex;
-    grid-area: input-use-phys;
-    justify-content: center;
-}
-
 .title-models {grid-area: title-models;}
 .models-list-wrapper {grid-area: models-list-wrapper;}
 .wrapper-models {
     display: grid;
-    grid-area: h;
+    grid-area: g;
     grid-template-rows: 50px 1fr 50px;
     grid-template-areas:
     " title-models "
@@ -104,7 +86,7 @@
 .title-preview {grid-area: title-preview;}
 .wrapper-preview {
     display: grid;
-    grid-area: i;
+    grid-area: h;
     grid-template-rows: 50px 1fr;
     grid-template-areas:
     " title-preview "
