@@ -3,6 +3,7 @@ const { v4: uuidv4 } = require('uuid');
 
 const paths = require('./../scripts/paths.js')
 const fileWriter = require('./../scripts/fileWriter.js')
+const alerts = require('./../scripts/alerts.js')
 const preview = require('../scripts/preview.js');
 const sidebar = require('../scripts/sidebar.js')
 sidebar.create('projects')
@@ -18,10 +19,35 @@ const btGenFiles = document.getElementById('btn-gen-files');
 var selectedProject = null;
 
 btGenFiles.addEventListener('click', (e) => {
-    if (selectedProject !== null) {
+    var jsonData = JSON.parse(fs.readFileSync(paths.projects));
+
+    if (selectedProject == null) {
+        alerts.error("Pleas select a project")
+    }
+    else if (jsonData[selectedProject]['game'] == "none") {
+        alerts.error("Make sure you have a game selected")
+    }
+    else if (Object.keys(jsonData[selectedProject]['clusters']).length === 0) {
+        alerts.error("You don't have any clusters")
+    } else if (hasEmptyClusters(selectedProject)) {
+        alerts.error("You have an incomplete cluster")
+    } else {
         fileWriter.generateFiles(selectedProject)
+        alerts.success("All files have been generated!")
     }
 })
+
+function hasEmptyClusters(selectedProject) {
+    var jsonData = JSON.parse(fs.readFileSync(paths.projects));
+
+    for (var cluster in jsonData[selectedProject]['clusters']) {
+        if (Object.keys(jsonData[selectedProject]['clusters'][cluster]['peers']).length === 0) {
+            return true
+        }
+    }
+
+    return false
+}
 
 btnNewProject.addEventListener('click', (e) => {
     localStorage.setItem("selectedProject", uuidv4());
@@ -32,8 +58,7 @@ btnEdit.addEventListener('click', (e) => {
 })
 btnRemove.addEventListener('click', (e) => {
     if (selectedProject !== null) {
-        var data = fs.readFileSync(paths.projects);
-        var jsonData = JSON.parse(data);
+        var jsonData = JSON.parse(fs.readFileSync(paths.projects));
         delete jsonData[selectedProject];
         fs.writeFileSync(paths.projects, JSON.stringify(jsonData, null, 4));
         selectedProject = null;
