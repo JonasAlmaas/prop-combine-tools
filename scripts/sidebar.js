@@ -8,17 +8,13 @@ var create = (hrefPage) => {
     const navbar = document.createElement('div')
     navbar.className = 'navbar'
 
-    const home = createNavbarItem('Home',hrefPage)
+    const guide = createNavbarItem('Guide', hrefPage)
     const games = createNavbarItem('Games', hrefPage)
     const projects = createNavbarItem('Projects', hrefPage)
-    const guide = createNavbarItem('Guide', hrefPage)
-    const resources = createNavbarItem('Resources', hrefPage)
 
-    navbar.appendChild(home)
+    navbar.appendChild(guide)
     navbar.appendChild(games)
     navbar.appendChild(projects)
-    navbar.appendChild(guide)
-    navbar.appendChild(resources)
 
     const footer = document.createElement('div')
     footer.className = 'footer'
