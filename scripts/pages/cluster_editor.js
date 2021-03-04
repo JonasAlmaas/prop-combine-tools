@@ -15,7 +15,6 @@ const inputName = document.getElementById('input-name');
 const inputClstLmt = document.getElementById('input-clst-lmt');
 const inputDistLmt = document.getElementById('input-dist-lmt');
 const inputMaterialPath = document.getElementById('input-mat-path')
-const inputUsePhys = document.getElementById('input-use-phys');
 const dropdownSurPropList = document.getElementById('sur-prop-select');
 const modelsListWrapper = document.getElementById('models-list-wrapper');
 const previewContent = document.getElementById('preview-content');
@@ -113,11 +112,6 @@ dropdownSurPropList.addEventListener('change', (e) => {
     fs.writeFileSync(paths.projects, JSON.stringify(jsonData, null, 4));
     updatePreview();
 })
-inputUsePhys.addEventListener('change', (e) => {
-    var jsonData = JSON.parse(fs.readFileSync(paths.projects));
-    jsonData[activeProject]['clusters'][activeCluster]['usePhys'] = inputUsePhys.checked;
-    fs.writeFileSync(paths.projects, JSON.stringify(jsonData, null, 4));
-})
 
 function checkForNewCluster() {
     if (fs.existsSync(paths.projects) == false) {
@@ -141,7 +135,6 @@ function checkForNewCluster() {
             "distanceLimit": inputDistLmt.value,
             "materialPath": inputMaterialPath.value,
             "surfaceProp": 'default',
-            "usePhys": inputUsePhys.checked,
             "peers": {
             }
         }
