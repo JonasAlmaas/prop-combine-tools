@@ -1,0 +1,36 @@
+.preview-wrapper {
+    padding: 0 10px;
+    overflow-y: scroll;
+    height: 99%;
+}
+
+.preview-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    color: var(--color-text-red);
+}
+
+.tab-1 {
+    margin-left: 20px;
+}
+
+.tab-2 {
+    margin-left: 40px;
+}
+
+.tab-3 {
+    margin-left: 60px;
+}
+
+.string {
+    color: var(--color-text-green);
+}
+
+.number {
+    color: var(--color-text-blue);
+}
