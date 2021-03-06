@@ -16,13 +16,19 @@ var create = (hrefPage) => {
     navbar.appendChild(games)
     navbar.appendChild(projects)
 
+    // Don't know if I can actualt have this here or not
+    // const footer = document.createElement('div')
+    // footer.className = 'footer'
+    // const footerText = document.createElement('div')
+    // footerText.className = 'footer-text noselect'
+    // footerText.innerHTML = 'Copyright © ' + date.getFullYear()
+    // footer.appendChild(footerText)
+
     const footer = document.createElement('div')
     footer.className = 'footer'
-
     const footerText = document.createElement('div')
     footerText.className = 'footer-text noselect'
-
-    footerText.innerHTML = 'Copyright © ' + date.getFullYear()
+    footerText.innerHTML = 'Jonas Almås'
     footer.appendChild(footerText)
 
     sidebarWrapper.appendChild(navbar)
