@@ -22,7 +22,7 @@ btGenFiles.addEventListener('click', (e) => {
     var jsonData = JSON.parse(fs.readFileSync(paths.projects));
 
     if (selectedProject == null) {
-        alerts.error("Pleas select a project")
+        alerts.error("Please select a project")
     }
     else if (jsonData[selectedProject]['game'] == "none") {
         alerts.error("Make sure you have a game selected")
