@@ -8,10 +8,220 @@
     </head>
 
     <body>
-        <div class="page-wrapper noselect">
-            <div class="text">
-                <h1>Coming Soon</h1>
-                <h2>Go to games or projects to use the tool!</h2>
+        <div class="page-wrapper">
+            <div class="content-wrapper">
+                <!-- WHAT? -->
+                <div class="section">
+                    <div class="title-wrapper">
+                        <h1 class="title">What is Static Prop Combine?</h1>
+                    </div>
+                    <p class="textbox">
+                        Static Prop combine, or as more often refered to as "Autocombine" is a CS:GO exclusive
+                        feature that came along with the 2015 version of Nuke.
+                    </p>
+                    <p class="textbox">
+                        It allows VBSP to combine multiple static props into one big prop. The rules it follows
+                        to do so can either be automatically made when compiling or manually defined in any text
+                        editor or by using this program.
+                    </p>
+                    <img class="noselect" src="../assets/img/example_pallets_01.png">
+                </div>
+
+                <!-- WHY? -->
+                <div class="section">
+                    <div class="title-wrapper">
+                        <h1 class="title">Why would I use autocombine?</h1>
+                    </div>
+                    <div class="section-split">
+                        <div>
+                            <p class="textbox">
+                                CS:GO players expect extremely high fps on all maps and autocombine can help you
+                                with just that. The way the Source Engine works is that it creates a draw call
+                                per material one for each mesh using said material. By combining meshes together
+                                that are sharing materials you can greatly reduce the amounts of total draw calls.
+                            </p>
+                            <p class="textbox">
+                                Too many draw calls is often the reason for lag
+                                on maps. It's way better to draw a bit of extra geometry than to have a lot of draw calls.
+                                Valve stated that after implementing autocombine on Nuke the map ran 40% faster.
+                            </p>
+                            <p class="textbox">
+                                As an example, the kegs on the side here are all using the same material, in other words, by
+                                combining them into one prop you will reduce the draw calls from seven down to just two.
+                            </p>
+                        </div>
+                        <img class="noselect" src="../assets/img/example_keg_pallet_01.png">
+                    </div>
+                </div>
+
+                <!-- HOW? -->
+                <div class="section">
+                    <div class="title-wrapper">
+                        <h1 class="title">How do I use autocombine?</h1>
+                    </div>
+                    <p class="textbox">
+                        The number one factor to make autocombine work is having the source files for the model.
+                        If you are trying to use any valve made model you will have to decompile them using a tool like
+                        <a href="javascript:void(0)" class="link" id="link-crowbar">Crowbar</a>, you will also have to
+                        rename them before compileing to prevent overlapping model names.
+                    </p>
+                    <p class="textbox">
+                        It's very important that the .qc, the reference mesh(supported formats are: .smd, .dmx and .fbx) and the physics
+                        mesh are all located in <a class="highlighted">"...\Steam\steamapps\common\content\csgo\models\"</a>. It's also very
+                        important that the correct folder structure is used. If your model path is
+                        <a class="highlighted">"bavaria\keg_01"</a> you have to make sure the files are located in
+                        <a class="highlighted">"...\Steam\steamapps\common\content\csgo\models\bavaria\"</a>. This is also the location
+                        you have to compile the model from.
+                    </p>
+                    <div class="section-split">
+                        <p class="textbox">
+                            If you are using Blender I would recomend getting the addon <a href="javascript:void(0)" class="link" id="link-sourceOps">SourceOps</a>.
+                            It can help you with many Source Engine related things, one of them being autocombine.
+                            By checking "Static Prop Combine" in the model options <a href="javascript:void(0)" class="link" id="link-sourceOps">SourceOps</a>
+                            automatically places and compiles the model in the correct locatioin, so that you don't have to worry about that.
+                        </p>
+                        <img class="noselect" src="../assets/img/sourceOps_01.png">
+                    </div>
+                    <p class="textbox">
+                        Once all of that is set up you can start using this program. The first thing you want to do is to go in to
+                        <a href="./games.html" class="link" >Games</a>, there you can create game profiles.The path should point to
+                        the root folder of your project.
+                    </p>
+                    <img class="noselect" src="../assets/img/example_game_path.png">
+                    <p class="textbox">
+                        After that you can create your first <a href="./projects.html" class="link" >project</a>. Configuring a project
+                        should be relativly easy. Just creat clusters and fill in the requiered values.
+                    </p>
+                </div>
+
+                <!-- Compile Options -->
+                <div class="section">
+                    <div class="title-wrapper">
+                        <h1 class="title">Compileing</h1>
+                    </div>
+                    <p class="textbox">
+                        If you now try to compile your map nothing is going to happen, you will have to tell VBSP to use
+                        autocombine. To do this you need to add a couple of compile parameters. The following is a list of
+                        all autocombine related compile parameters with description.
+                    </p>
+                    <div class="img-compiler">
+                        <img class="noselect" src="../assets/img/example_compiler.png">
+                    </div>
+
+                    <p class="textbox">
+                        -StaticPropCombine: Automatically generate static prop combine rules for props that VBSP deems should
+                        be combined. Note: This does not write to spcombinerules.txt.
+                    </p>
+                    <p class="textbox">
+                        -StaticPropCombine_AutoCombine: Automatically generate static prop combine rules for props that
+                        VBSP deems should be combined. Note: This does not write to spcombinerules.txt.
+                    </p>
+                    <p class="textbox">
+                        -StaticPropCombine_ConsiderVis: Instead of using the distance limit, combine all props in the group
+                        that share visclusters.
+                    </p>
+                    <p class="textbox">
+                        -StaticPropCombine_SuggestRules: Lists models sharing the same material that should be added to spcombinerules.txt.
+                    </p>
+                    <p class="textbox">
+                        -StaticPropCombine_MinInstances < int >: Set the minimum number of props in a combine group required
+                        to create a combined prop. Tip: Valve had this set to 3 for the new Dust 2.
+                    </p>
+                    <p class="textbox">
+                        -StaticPropCombine_PrintCombineRules: Confirm: Prints the combine rules?
+                    </p>
+                    <p class="textbox">
+                        -StaticPropCombine_ColorInstances: Instances of combined props get colored.
+                    </p>
+                    <p class="textbox">
+                        -KeepSources: Don't delete the autogenerated QCs and unpacked model files after finishing.
+                    </p>
+                    <p class="textbox">
+                        -CombineIgnore_FastReflection: Combine props, even if they have differing Render in Fast Reflections settings.
+                    </p>
+                    <p class="textbox">
+                        -CombineIgnore_Normals: Combine props, even if they have differing Ignore Normals settings.
+                    </p>
+                    <p class="textbox">
+                        -CombineIgnore_NoShadow: Combine props, even if they have differing Disable Shadows settings.
+                    </p>
+                    <p class="textbox">
+                        -CombineIgnore_NoVertexLighting: Combine props, even if they have differing Disable Vertex lighting settings.
+                    </p>
+                    <p class="textbox">
+                        -CombineIgnore_NoFlashlight: Combine props, even if they have differing Disable flashlight settings.
+                    </p>
+                    <p class="textbox">
+                        -CombineIgnore_NoSelfShadowing: Combine props, even if they have differing Disable Self-Shadowing settings.
+                    </p>
+                    <p class="textbox">
+                        -CombineIgnore_DisableShadowDepth: Combine props, even if they have differing Disable ShadowDepth settings.
+                    </p>
+                    <p class="textbox">
+                        Recomended parameters:
+                    </p>
+                    <p class="textbox">
+                        <a class="highlighted">-staticpropcombine -staticpropcombine_mininstances 3 -staticpropcombine_considervis</a>
+                    </p>
+                </div>
+
+                <!-- Did it work? -->
+                <div class="section">
+                    <div class="title-wrapper">
+                        <h1 class="title">How do I know if it worked?</h1>
+                    </div>
+                    <p class="textbox">
+                        When loading up the game the props shouldn't look any different, do how do you know if it worked?
+                        There are many ways to confirm this, one way is to open the .bps with a tool like
+                        <a href="javascript:void(0)" class="link" id="link-vide">VIDE</a>, when compiling it automatically packs the autocombined
+                        models into the .bsp, if they are here it worked. Look for _autocombine.
+                    </p>
+                    <img class="img-vide noselect" src="../assets/img/example_vide.png">
+                    <p class="textbox">
+                        Another way to check if it is working is to use the compile parameter <a class="highlighted">-StaticPropCombine_ColorInstances</a>,
+                        this gives the combined prop a colour tint, so if there are all the same colour, it worked. Colour tints dont work in fullbright
+                        so you will have to compile lighting to see it.
+                    </p>
+                    <img class="img-vide noselect" src="../assets/img/example_colourtint.png">
+                </div>
+
+                <!-- Additional notes -->
+                <div class="section">
+                    <div class="title-wrapper">
+                        <h1 class="title">Keep in Mind</h1>
+                    </div>
+                    <p class="textbox">
+                        - If the keyvale "Disable Prop Combine" is set to "yes" or the "Uniform Scale Override", "skin", "color" or "Disable Flashlight"
+                        differs the models will not combine.
+                    </p>
+                    <p class="textbox">
+                        - If the original props don't have a collision model, you will have to set collisions to "Not Solid" in the
+                        properties. Otherwise, the combined prop will be solid (automatically generated collision mesh; causes problems).
+                    </p>
+                    <p class="textbox">
+                        - Props that differ in the keyvalues listed below will NOT be combined unless manually overridden with the appropriate VBSP option:
+                    </p>
+                    <p class="textbox">
+                        <ul>
+                            <li>Render in Fast Reflections (-combineignore_fastreflection)</li>
+                            <li>Ignore Normals (-combineignore_normals)</li>
+                            <li>Disable Shadows (-combineignore_noshadows)</li>
+                            <li>Disable Vertex lighting (-combineignore_novertexlighting)</li>
+                            <li>Disable Flashlight (-combineignore_noflashlight)</li>
+                            <li>Disable Self-Shadowing (-combineignore_noselfshadowing)</li>
+                            <li>Disable ShadowDepth (-combineignore_disableshadowdepth)</li>
+                        </ul>
+                    </p>
+                </div>
+                
+                <!-- Sources -->
+                <div class="section">
+                    <div class="title-wrapper">
+                        <h1 class="title">Sources</h1>
+                    </div>
+                    <a href="javascript:void(0)" class="link" id="link-vdc-spc">https://developer.valvesoftware.com/wiki/Static_Prop_Combine</a>
+                    <a href="javascript:void(0)" class="link" id="link-vdc-vbsp">https://developer.valvesoftware.com/wiki/VBSP</a>
+                </div>
             </div>
         </div>
 
