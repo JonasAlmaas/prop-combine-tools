@@ -35,10 +35,10 @@
                     <div class="section-split">
                         <div>
                             <p class="textbox">
-                                CS:GO players expect extremely high fps on all maps and autocombine can help you
+                                CS:GO players expect extremely high fps on all maps, and autocombine can help you
                                 with just that. The way the Source Engine works is that it creates a draw call
-                                per material one for each mesh using said material. By combining meshes together
-                                that are sharing materials you can greatly reduce the amounts of total draw calls.
+                                per material, one for each mesh using said material. By combining meshes that are
+                                sharing materials you can greatly reduce the amount of draw calls.
                             </p>
                             <p class="textbox">
                                 Too many draw calls is often the reason for lag
@@ -62,42 +62,42 @@
                     <p class="textbox">
                         The number one factor to make autocombine work is having the source files for the model.
                         If you are trying to use any valve made model you will have to decompile them using a tool like
-                        <a href="javascript:void(0)" class="link" id="link-crowbar">Crowbar</a>, you will also have to
+                        <a href="javascript:void(0)" class="link" id="link-crowbar">Crowbar</a>. You will also have to
                         rename them before compiling to prevent overlapping model names.
                     </p>
                     <p class="textbox">
-                        It's very important that the .qc, the reference mesh(supported formats are: .smd, .dmx and .fbx) and the physics
-                        mesh are all located in <a class="highlighted">"...\Steam\steamapps\common\content\csgo\models\"</a>. It's also very
+                        It's very important that the .qc, the reference mesh (supported formats are: .smd, .dmx and .fbx) and the physics
+                        mesh are all located in <a class="highlighted">...\Steam\steamapps\common\content\csgo\models\</a>. It's also very
                         important that the correct folder structure is used. If your model path is
-                        <a class="highlighted">"bavaria\keg_01"</a> you have to make sure the files are located in
-                        <a class="highlighted">"...\Steam\steamapps\common\content\csgo\models\bavaria\"</a>. This is also the location
+                        <a class="highlighted">bavaria\keg_01</a> you have to make sure the files are located in
+                        <a class="highlighted">...\Steam\steamapps\common\content\csgo\models\bavaria\</a>. This is also the location
                         you have to compile the model from.
                     </p>
                     <div class="section-split">
                         <p class="textbox">
                             If you are using Blender I would recomend getting the addon <a href="javascript:void(0)" class="link" id="link-sourceOps">SourceOps</a>.
                             It can help you with many Source Engine related things, one of them being autocombine.
-                            By checking "Static Prop Combine" in the model options <a href="javascript:void(0)" class="link" id="link-sourceOps">SourceOps</a>
-                            automatically places and compiles the model in the correct locatioin, so that you don't have to worry about that.
+                            By checking "Static Prop Combine" in the model options, SourceOps automatically places and compiles the model in the
+                            correct locatioin, so that you don't have to worry about that.
                         </p>
                         <img class="noselect" src="../assets/img/sourceOps_01.png">
                     </div>
                     <p class="textbox">
                         Once all of that is set up you can start using this program. The first thing you want to do is to go in to
-                        <a href="./games.html" class="link" >Games</a>, there you can create game profiles.The path should point to
-                        the root folder of your project.
+                        <a href="./games.html" class="link" >Games</a>; there you can create game profiles. The path should point to
+                        the game folder of your project. For CS:GO that would be <a class="highlighted">...\Steam\steamapps\common\Counter-Strike Global Offensive\csgo</a>.
                     </p>
                     <img class="noselect" src="../assets/img/example_game_path.png">
                     <p class="textbox">
                         After that you can create your first <a href="./projects.html" class="link" >project</a>. Configuring a project
-                        should be relativly easy. Just creat clusters and fill in the requiered values.
+                        should be relativly easy. Just creat clusters and fill in the required values.
                     </p>
                 </div>
 
                 <!-- Compile Options -->
                 <div class="section">
                     <div class="title-wrapper">
-                        <h1 class="title">compiling</h1>
+                        <h1 class="title">Compiling</h1>
                     </div>
                     <p class="textbox">
                         If you now try to compile your map nothing is going to happen, you will have to tell VBSP to use
@@ -171,16 +171,16 @@
                         <h1 class="title">How do I know if it worked?</h1>
                     </div>
                     <p class="textbox">
-                        When loading up the game the props shouldn't look any different, do how do you know if it worked?
-                        There are many ways to confirm this, one way is to open the .bps with a tool like
-                        <a href="javascript:void(0)" class="link" id="link-vide">VIDE</a>, when compiling it automatically packs the autocombined
-                        models into the .bsp, if they are here it worked. Look for _autocombine.
+                        When loading up the game the props shouldn't look any different, so how do you know if it worked?
+                        There are many ways to confirm this, one way is to open the .bsp with a tool like
+                        <a href="javascript:void(0)" class="link" id="link-vide">VIDE</a>. When compiling it automatically packs the autocombined
+                        models into the .bsp; if they are here it worked. Look for _autocombine.
                     </p>
                     <img class="img-vide noselect" src="../assets/img/example_vide.png">
                     <p class="textbox">
                         Another way to check if it is working is to use the compile parameter <a class="highlighted">-StaticPropCombine_ColorInstances</a>,
-                        this gives the combined prop a colour tint, so if there are all the same colour, it worked. Colour tints dont work in fullbright
-                        so you will have to compile lighting to see it.
+                        this gives the combined prop a colour tint, so if they are all the same colour, it worked. Colour tints dont work in fullbright
+                        so you will have to compile with lighting to see it.
                     </p>
                     <img class="img-vide noselect" src="../assets/img/example_colourtint.png">
                 </div>
@@ -191,7 +191,7 @@
                         <h1 class="title">Keep in Mind</h1>
                     </div>
                     <p class="textbox">
-                        - If the keyvale "Disable Prop Combine" is set to "yes" or the "Uniform Scale Override", "skin", "color" or "Disable Flashlight"
+                        - If the keyvalue "Disable Prop Combine" is set to "yes" or the "Uniform Scale Override", "skin", "color" or "Disable Flashlight"
                         differs the models will not combine.
                     </p>
                     <p class="textbox">
