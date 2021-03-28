@@ -13,6 +13,11 @@ var error = (msg) => {
 }
 
 function createAlert(wrapperClasse, msg) {
+    for (i=0; i < body.getElementsByClassName('alert-wrapper').length; i++) {
+        alertToRemove = body.getElementsByClassName('alert-wrapper')[i]
+        body.removeChild(alertToRemove)
+    }
+
     const alertWrapper = document.createElement('div')
     alertWrapper.className = 'alert-wrapper show noselect ' + wrapperClasse
 
@@ -27,7 +32,7 @@ function createAlert(wrapperClasse, msg) {
         alertWrapper.className = 'alert-wrapper hide noselect ' + wrapperClasse
 
         setTimeout(() => {
-            body.removeChild(alertWrapper)
+            body.removeChild(body.getElementsByClassName('alert-wrapper')[0])
         }, 250);
     }, 4000);
 }
