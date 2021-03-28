@@ -109,8 +109,8 @@
                     </div>
 
                     <p class="textbox">
-                        -StaticPropCombine: Automatically generate static prop combine rules for props that VBSP deems should
-                        be combined. Note: This does not write to spcombinerules.txt.
+                        -StaticPropCombine: Merges static props together according to the rules defined in scripts/hammer/spcombinerules/spcombinerules.txt.
+                        This lowers the number of draw calls, increasing performance. It can also be used to lower the number of static props present in a map.
                     </p>
                     <p class="textbox">
                         -StaticPropCombine_AutoCombine: Automatically generate static prop combine rules for props that
@@ -178,7 +178,7 @@
                     </p>
                     <img class="img-vide noselect" src="../assets/img/example_vide.png">
                     <p class="textbox">
-                        Another way to check if it is working is to use the compile parameter <a class="highlighted">-StaticPropCombine_ColorInstances</a>,
+                        Another way to check if it is working is to use the compile parameter <a class="highlighted">-StaticPropCombine_ColorInstances</a> in VBSP,
                         this gives the combined prop a colour tint, so if they are all the same colour, it worked. Colour tints dont work in fullbright
                         so you will have to compile with lighting to see it.
                     </p>
