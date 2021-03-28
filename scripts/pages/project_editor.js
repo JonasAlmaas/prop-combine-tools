@@ -2,21 +2,51 @@ const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 
 const paths = require('./../scripts/paths.js')
+const fileWriter = require('./../scripts/fileWriter.js')
+const alerts = require('./../scripts/alerts.js')
 const preview = require('../scripts/preview.js');
 const sidebar = require('../scripts/sidebar.js')
 sidebar.create('projects')
-
-const btnNewCluster = document.getElementById('btn-new');
-const btnEditCluster = document.getElementById('btn-edit');
-const btnRemoveCluster = document.getElementById('btn-remove');
 
 const inputName = document.getElementById('input-name');
 const dropdownGamesList = document.getElementById('game-select');
 const clustersListWrapper = document.getElementById('clusters-list-wrapper');
 const previewContent = document.getElementById('preview-content');
 
+const btnNewCluster = document.getElementById('btn-new');
+const btnEditCluster = document.getElementById('btn-edit');
+const btnRemoveCluster = document.getElementById('btn-remove');
+const btGenFiles = document.getElementById('btn-gen-files');
+
 const activeProject = localStorage.getItem("selectedProject");
 var selectedCluster = null;
+
+btGenFiles.addEventListener('click', (e) => {
+    var jsonData = JSON.parse(fs.readFileSync(paths.projects));
+
+    if (jsonData[activeProject]['game'] == "none") {
+        alerts.error("Make sure you have a game selected")
+    } else if (Object.keys(jsonData[activeProject]['clusters']).length === 0) {
+        alerts.error("You don't have any clusters")
+    } else if (hasEmptyClusters(activeProject)) {
+        alerts.error("You have an incomplete cluster")
+    } else {
+        fileWriter.generateFiles(activeProject)
+        alerts.success("All files have been generated!")
+    }
+})
+
+function hasEmptyClusters(selectedProject) {
+    var jsonData = JSON.parse(fs.readFileSync(paths.projects));
+
+    for (var cluster in jsonData[selectedProject]['clusters']) {
+        if (Object.keys(jsonData[selectedProject]['clusters'][cluster]['peers']).length === 0) {
+            return true
+        }
+    }
+
+    return false
+}
 
 btnNewCluster.addEventListener('click', (e) => {
     localStorage.setItem("selectedCluster", uuidv4());
