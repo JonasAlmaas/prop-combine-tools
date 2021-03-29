@@ -1,6 +1,6 @@
 # prop-combine-tools ![version](https://img.shields.io/badge/version-1.1.4-blue.svg)
 
-A simple to use tool that helps you make the files needed for prop combine to work for cs:go.
+Simple to use tool that helps you make the files needed for prop combine to work for CS:GO.
 
 ## Download
 
@@ -11,7 +11,7 @@ No install, just unzip and run!
 
 ## OS Support
 
-Currently Prop Combine Tools is Windows exclusive.
+Currently, Prop Combine Tools is Windows exclusive.
 
 ## What is Static Prop Combine?
 Static Prop Combine, more often referred to as "Autocombine", is a CS:GO exclusive feature that came with the 2015 version of Nuke.
@@ -26,7 +26,7 @@ Too many draw calls is often the reason for lag on maps. It's way better to draw
                                 
 As an example, the kegs on the side here are all using the same material, in other words, by combining them into one prop you will reduce the draw calls from seven down to just two.
 
-### More info on how to use it can be found in the built in guide.
+### More info on how to use it can be found in the built-in guide.
 
 ![](https://i.imgur.com/2xX60jl.png)
 ![](https://i.imgur.com/I8xNjVT.png)
