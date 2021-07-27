@@ -2,16 +2,26 @@
 
 :root {
     /* Colors */
-    --ColorBackground: rgb(40, 44, 52);
+    --ColorBackground_01: rgb(61, 67, 78);
+    --ColorBackground_02: rgb(40, 44, 52);
+    --ColorBackground_03: rgb(33, 37, 43);
+    --ColorBackground_04: rgb(28, 32, 38);
 
     --ColorButton: rgb(45, 49, 58);
     --ColorButtonHovered: rgb(49, 53, 63);
 
     --ColorTextWhite: rgb(209, 217, 231);
+    --ColorTextBlue: rgb(86, 182, 195);
+    --ColorTextGreen: rgb(145, 196, 122);
+    --ColorTextGrey: rgb(147, 150, 155);
+    --ColorTextMagenta: rgb(205, 125, 231);
+    --ColorTextRed: rgb(220, 107, 117);
+    --ColorTextWhite: rgb(209, 217, 231);
+    --ColorTextYellow: rgb(233, 197, 120);
 
     /* Variables */
-    --BorderRadius: 5px;
-    --Margin: 2.5px:
+    --BorderRadius: 3px;
+    --Margin: 4px;
 }
 
 * {
@@ -30,8 +40,28 @@ html {
 }
 
 body {
-    background-color: var(--ColorBackground);
+    background-color: var(--ColorBackground_02);
     /* overflow: hidden; */
+}
+
+.noselect {
+    user-select: none;
+}
+
+.title-container {
+    align-items: center;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.title {
+    font-size: 20px;
+    /* background-color: yellow;
+    height: 100%;
+    width: 100%; */
 }
 
 .btn-01 {
@@ -42,8 +72,4 @@ body {
 
 .btn-01:hover {
     background-color: var(--ColorButtonHovered);
-}
-
-.container {
-    background-color: lightblue;
 }
