@@ -1,6 +1,7 @@
 const body = document.getElementsByTagName('body')[0];
 
-import * as Projects from './pages/Projects.js';
+import * as Projects from './Projects.js';
+import { CreateStyleSheet } from '../utils/htmlGen.js';
 
 export function LoadPage(pageName) {
     ClearPage();
@@ -12,5 +13,7 @@ export function LoadPage(pageName) {
 }
 
 function ClearPage() {
+    var styleSheet = CreateStyleSheet('./styles/styles.css');
     body.innerHTML = '';
+    body.appendChild(styleSheet);
 }

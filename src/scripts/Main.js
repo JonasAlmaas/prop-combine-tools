@@ -1,3 +1,3 @@
-import * as PageHandler from './PageHandler.js';
+import * as PageHandler from './pages/PageHandler.js';
 
 PageHandler.LoadPage("Projects");
