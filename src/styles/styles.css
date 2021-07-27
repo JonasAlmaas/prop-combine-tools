@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+:root {
+    /* Colors */
+    --ColorBackground: rgb(40, 44, 52);
+
+    --ColorButton: rgb(45, 49, 58);
+    --ColorButtonHovered: rgb(49, 53, 63);
+
+    --ColorTextWhite: rgb(209, 217, 231);
+
+    /* Variables */
+    --BorderRadius: 5px;
+    --Margin: 2.5px:
+}
+
+* {
+    border: none;
+    color: var(--ColorTextWhite);
+    font: inherit;
+    font-size: 14px;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    text-decoration: none;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--ColorBackground);
+    /* overflow: hidden; */
+}
+
+.btn-01 {
+    background-color: var(--ColorButton);
+    padding: 1em;
+    border-radius: var(--BorderRadius);
+}
+
+.btn-01:hover {
+    background-color: var(--ColorButtonHovered);
+}
+
+.container {
+    background-color: lightblue;
+}
