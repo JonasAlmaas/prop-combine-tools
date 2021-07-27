@@ -3,28 +3,53 @@ const body = document.getElementsByTagName('body')[0];
 export function LoadPage() {
     body.innerHTML = '<link rel="stylesheet" href="./styles/pages/Projects.css"></link>';
 
-    const btn_01 = CreateButton("btn-01", "Hi");
+    var pageContainer = CreateDiv("page-container");
+    {
+        var navbarContainer = CreateDiv("navbar-container");
 
-    const divProjects = CreateDiv("container", btn_01.outerHTML);
-    const divPreview = CreateDiv("container", "");
+        var divProjects = CreateDiv("container projects");
+        {
+            var title = CreateTitle("Preview");
 
-    body.appendChild(divPreview);
-    body.appendChild(divProjects);
+            divProjects.appendChild(title);
+        }
+        var divPreview = CreateDiv("container preview");
+
+        pageContainer.appendChild(navbarContainer);
+        pageContainer.appendChild(divProjects);
+        pageContainer.appendChild(divPreview);
+    }
+    body.appendChild(pageContainer);
+    
+    // const btn_01 = CreateButton("btn-01", "Hi");
 
     /*
         Button Events
     */
-    btn_01.addEventListener('click', (e) => {
-        console.log("asdas");
-    });
+    // btn_01.addEventListener('click', (e) => {
+    //     console.log("asdas");
+    // });
 }
 
 // To be moved later
-function CreateDiv(classes, innerHTML) {
-    var div = document.createElement('div')
-    div.className = classes
-    div.innerHTML = innerHTML
-    return div
+function CreateDiv(classes) {
+    var div = document.createElement('div');
+    div.className = classes;
+    return div;
+}
+
+function CreateTitle(title) {
+    var div = CreateDiv("title-container");
+    var title = CreateLabel("title noselect", title)
+    div.appendChild(title);
+    return div;
+}
+
+function CreateLabel(classes, text) {
+    var div = document.createElement('div');
+    div.className = classes;
+    div.innerHTML = text;
+    return div;
 }
 
 function CreateButton(classes, text) {
