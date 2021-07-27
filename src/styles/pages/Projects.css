@@ -15,7 +15,7 @@
 /* NAVBAR */
 .navbar-container {
     grid-area: navbar-container;
-    background-color: var(--ColorBackground_03);
+    background-color: var(--Color_03);
     height: 100%;
     width: 100%;
 }
@@ -23,13 +23,11 @@
 /* PROJECTS */
 .projects {
     grid-area: projects;
-    background-color: var(--ColorBackground_03);
+    background-color: var(--Color_03);
     border-radius: var(--BorderRadius);
-    height: 100%;
-    width: 100%;
 
     display: grid;
-    grid-template-rows: 35px 1fr 35px;
+    grid-template-rows: 45px 1fr 45px;
 }
 
 .projects > .title-container {
@@ -39,8 +37,13 @@
 /* PREVIEW */
 .preview {
     grid-area: preview;
-    background-color: var(--ColorBackground_03);
+    background-color: var(--Color_03);
     border-radius: var(--BorderRadius);
-    height: 100%;
-    width: 100%;
+
+    display: grid;
+    grid-template-rows: 45px 1fr 45px;
+}
+
+.preview > .title-container {
+    border-radius: var(--BorderRadius) var(--BorderRadius) 0 0;
 }
