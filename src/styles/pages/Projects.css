@@ -1,0 +1,46 @@
+.page-container {
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-gap: var(--Margin);
+    grid-template-rows: 20px 1fr 0;
+    grid-template-columns: 0 1fr 1fr 0;
+    grid-template-areas:
+    "navbar-container navbar-container navbar-container navbar-container"
+    ". projects preview ."
+    ". . . .";
+}
+
+/* NAVBAR */
+.navbar-container {
+    grid-area: navbar-container;
+    background-color: var(--ColorBackground_03);
+    height: 100%;
+    width: 100%;
+}
+
+/* PROJECTS */
+.projects {
+    grid-area: projects;
+    background-color: var(--ColorBackground_03);
+    border-radius: var(--BorderRadius);
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-rows: 35px 1fr 35px;
+}
+
+.projects > .title-container {
+    border-radius: var(--BorderRadius) var(--BorderRadius) 0 0;
+}
+
+/* PREVIEW */
+.preview {
+    grid-area: preview;
+    background-color: var(--ColorBackground_03);
+    border-radius: var(--BorderRadius);
+    height: 100%;
+    width: 100%;
+}
