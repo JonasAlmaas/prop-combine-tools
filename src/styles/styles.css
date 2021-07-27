@@ -2,10 +2,10 @@
 
 :root {
     /* Colors */
-    --ColorBackground_01: rgb(61, 67, 78);
-    --ColorBackground_02: rgb(40, 44, 52);
-    --ColorBackground_03: rgb(33, 37, 43);
-    --ColorBackground_04: rgb(28, 32, 38);
+    --Color_01: rgb(61, 67, 78);
+    --Color_02: rgb(40, 44, 52);
+    --Color_03: rgb(33, 37, 43);
+    --Color_04: rgb(28, 32, 38);
 
     --ColorButton: rgb(45, 49, 58);
     --ColorButtonHovered: rgb(49, 53, 63);
@@ -40,7 +40,7 @@ html {
 }
 
 body {
-    background-color: var(--ColorBackground_02);
+    background-color: var(--Color_02);
     /* overflow: hidden; */
 }
 
@@ -49,12 +49,12 @@ body {
 }
 
 .title-container {
-    align-items: center;
-    background-color: red;
     display: flex;
+    align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
+    border-style: solid;
+    border-color: var(--Color_02);
+    border-width: 0px 0px 1px 0px;
 }
 
 .title {
@@ -73,3 +73,21 @@ body {
 .btn-01:hover {
     background-color: var(--ColorButtonHovered);
 }
+
+/* SCROLLBAR */
+/* ::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-primaryDark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primaryDarker);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-corner {
+    background: rgba(0,0,0,0);
+} */
