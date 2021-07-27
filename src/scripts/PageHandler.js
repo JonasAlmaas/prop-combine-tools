@@ -12,5 +12,5 @@ export function LoadPage(pageName) {
 }
 
 function ClearPage() {
-    body.innerHTML = '<link rel="stylesheet" href="./styles/styles.css"></link>';
+    body.innerHTML = '';
 }
