@@ -1,3 +1,4 @@
 #directories
 release-builds
 node_modules
+*.blend1
