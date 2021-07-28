@@ -1,7 +1,9 @@
-// const electron = require('electron');
-// const path = require('path');
+const electron = require('electron');
+const path = require('path');
 
-// const appdata = (electron.app || electron.remote.app).getPath('userData');
-// export const userData = path.resolve(appdata, 'userData.json');
-// export const projectData = path.resolve(appdata, 'projectData.json');
+const appdata = (electron.app || electron.remote.app).getPath('userData');
+const projectData = path.resolve(appdata, 'projectData.json');
 
+module.exports = {
+    projectData
+}
