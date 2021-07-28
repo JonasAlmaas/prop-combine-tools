@@ -1,19 +1,26 @@
-const body = document.getElementsByTagName('body')[0];
+const body = document.body;
 
-const Projects = require('.scripts/pages/Projects.js');
-// require('.scripts/utils/htmlGen.js');
+const Projects = require('./Projects.js');
+const { CreateStyleSheet } = require('./../utils/htmlGen.js');
 
-export function LoadPage(pageName) {
-    ClearPage();
+const { Page } = require('./pages.js');
+
+var LoadPage = (pageName) => {
+    ResetPage();
 
     switch (pageName)
     {
-        case "Projects": { Projects.LoadPage(); break; }
+        case Page.Projects: { Projects.LoadPage(); break; }
+        default: { console.log(`Invalid page ${pageName}!`); break; }
     }
 }
 
-function ClearPage() {
-    // var styleSheet = CreateStyleSheet('./styles/styles.css');
+function ResetPage() {
+    var styleSheet = CreateStyleSheet('./styles/styles.css');
     body.innerHTML = '';
-    // body.appendChild(styleSheet);
+    body.appendChild(styleSheet);
+}
+
+module.exports = {
+    LoadPage
 }
