@@ -2,8 +2,6 @@ const {app, BrowserWindow} = require('electron');
 const url = require('url');
 const path = require('path');
 
-// process.env.NODE_ENV = 'production';
-
 let mainWindow;
 
 app.on('ready', function(){
@@ -14,17 +12,16 @@ app.on('ready', function(){
         minHeight: 600,
         title: 'Prop Combine Tools',
         show: false,
-        webPreferences: {
-            enableRemoteModule: true,
-            nodeIntegration: true
-        },
+        // webPreferences: {
+        //     nodeIntegration: true,
+        // }
     });
+
+    mainWindow.setMenuBarVisibility(false);
 
     mainWindow.once('ready-to-show', () => {
         mainWindow.show();
-    })
-
-    mainWindow.setMenuBarVisibility(false);
+    });
 
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, "../index.html"),
@@ -34,5 +31,5 @@ app.on('ready', function(){
 
     mainWindow.on('closed', function () {
         app.quit();
-    })
+    });
 });
