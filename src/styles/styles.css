@@ -25,7 +25,8 @@
     --Margin: 4px;
     --Titleheight: 45px;
     --NavbarHeight: 20px;
-    --ListSortingHeight: 20px;
+    --ListSortingHeight: 25px;
+    --ScrollbarWidth: 10px;
 }
 
 * {
@@ -45,6 +46,7 @@ html {
 
 body {
     background-color: var(--Color_02);
+    overflow: hidden;
 }
 
 .noselect {
