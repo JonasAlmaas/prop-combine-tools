@@ -1,3 +1,4 @@
 const PageHandler = require('./scripts/pages/PageHandler.js');
+const { Page } = require('./scripts/pages/pages.js');
 
-PageHandler.LoadPage("Projects");
+PageHandler.LoadPage(Page.Projects);
