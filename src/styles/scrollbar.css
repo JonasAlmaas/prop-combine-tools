@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-    width: 10px;
+    width: var(--ScrollbarWidth);
 }
 
 ::-webkit-scrollbar-track {
