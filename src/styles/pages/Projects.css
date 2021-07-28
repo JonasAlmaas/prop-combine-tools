@@ -12,6 +12,13 @@
     ". . . .";
 }
 
+.container {
+    background-color: var(--Color_03);
+    border-radius: var(--BorderRadius);
+    display: grid;
+    grid-template-rows: 45px 1fr 45px;
+}
+
 /* NAVBAR */
 .navbar-container {
     grid-area: navbar-container;
@@ -23,11 +30,6 @@
 /* PROJECTS */
 .projects {
     grid-area: projects;
-    background-color: var(--Color_03);
-    border-radius: var(--BorderRadius);
-
-    display: grid;
-    grid-template-rows: 45px 1fr 45px;
 }
 
 .projects > .title-container {
@@ -37,11 +39,6 @@
 /* PREVIEW */
 .preview {
     grid-area: preview;
-    background-color: var(--Color_03);
-    border-radius: var(--BorderRadius);
-
-    display: grid;
-    grid-template-rows: 45px 1fr 45px;
 }
 
 .preview > .title-container {
