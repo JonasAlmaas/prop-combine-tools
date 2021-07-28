@@ -1,3 +1,3 @@
-import * as PageHandler from './pages/PageHandler.js';
+const PageHandler = require('./scripts/pages/PageHandler.js');
 
 PageHandler.LoadPage("Projects");

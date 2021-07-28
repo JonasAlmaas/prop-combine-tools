@@ -1,8 +1,11 @@
-import * as htmlGen from './../utils/htmlGen.js';
+const htmlGen = require('./scripts/utils/htmlGen.js');
+const paths = require('./scripts/utils/paths.js');
 
 const body = document.getElementsByTagName('body')[0];
 
 export function LoadPage() {
+    console.log(paths.projectData);
+    console.log(paths.userData);
 
     var styleSheet = htmlGen.CreateStyleSheet('./styles/pages/Projects.css')
     body.append(styleSheet);

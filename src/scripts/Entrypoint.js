@@ -1,10 +1,10 @@
-const {app, BrowserWindow} = require('electron');
+const { app, BrowserWindow } = require('electron');
 const url = require('url');
 const path = require('path');
 
 let mainWindow;
 
-app.on('ready', function(){
+app.on('ready', () => {
     mainWindow = new BrowserWindow({
         width: 1325,
         height: 800,
@@ -12,9 +12,11 @@ app.on('ready', function(){
         minHeight: 600,
         title: 'Prop Combine Tools',
         show: false,
-        // webPreferences: {
-        //     nodeIntegration: true,
-        // }
+        webPreferences: {
+            enableRemoteModule: true,
+            nodeIntegration: true,
+            contextIsolation: false
+        },
     });
 
     mainWindow.setMenuBarVisibility(false);
@@ -24,7 +26,7 @@ app.on('ready', function(){
     });
 
     mainWindow.loadURL(url.format({
-        pathname: path.join(__dirname, "../index.html"),
+        pathname: path.join(__dirname, '../index.html'),
         protocol: 'file:',
         slashes: true
     }));
