@@ -2,9 +2,26 @@
     overflow-y: auto;
 }
 
+.listSorting-container {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 calc(var(--Margin) + var(--ScrollbarWidth)) 0 var(--Margin);
+    margin: 0 var(--Margin) 0 var(--Margin);
+}
+
+.sorting-option {
+    color: var(--ColorTextGrey);
+    text-align: right;
+}
+
+.sorting-option:first-child {
+    text-align: left;
+}
+
 .listItem-container {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     
     padding: 0 var(--Margin) 0 var(--Margin);
     align-items: center;
