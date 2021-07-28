@@ -1,12 +1,9 @@
-const htmlGen = require('./scripts/utils/htmlGen.js');
-const paths = require('./scripts/utils/paths.js');
-
 const body = document.getElementsByTagName('body')[0];
 
-export function LoadPage() {
-    console.log(paths.projectData);
-    console.log(paths.userData);
+const htmlGen = require('./../utils/htmlGen.js');
+const paths = require('./../utils/paths.js');
 
+var LoadPage = () => {
     var styleSheet = htmlGen.CreateStyleSheet('./styles/pages/Projects.css')
     body.append(styleSheet);
 
@@ -31,7 +28,7 @@ export function LoadPage() {
         pageContainer.appendChild(previewContainer);
     }
     body.appendChild(pageContainer);
-    
+
     // const btn_01 = CreateButton("btn-01", "Hi");
 
     /*
@@ -40,4 +37,8 @@ export function LoadPage() {
     // btn_01.addEventListener('click', (e) => {
     //     console.log("asdas");
     // });
+}
+
+module.exports = {
+    LoadPage
 }
