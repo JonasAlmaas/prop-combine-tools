@@ -4,43 +4,69 @@
 
     display: grid;
     grid-gap: var(--Margin);
-    grid-template-rows: 20px 1fr 0;
+    grid-template-rows: var(--NavbarHeight) 1fr 0;
     grid-template-columns: 0 1fr 1fr 0;
     grid-template-areas:
     "navbar-container navbar-container navbar-container navbar-container"
-    ". projects preview ."
-    ". . . .";
+    ". projects preview .";
 }
 
 .container {
     background-color: var(--Color_03);
     border-radius: var(--BorderRadius);
     display: grid;
-    grid-template-rows: 45px 1fr 45px;
+    grid-template-rows: var(--Titleheight) 1fr var(--Titleheight);
 }
 
 /* NAVBAR */
 .navbar-container {
     grid-area: navbar-container;
     background-color: var(--Color_03);
-    height: 100%;
-    width: 100%;
 }
 
 /* PROJECTS */
-.projects {
+.projects-container {
     grid-area: projects;
+    grid-template-rows: var(--Titleheight) var(--ListSortingHeight) 1fr 1fr var(--Titleheight);
+    overflow: auto;
 }
 
 .projects > .title-container {
     border-radius: var(--BorderRadius) var(--BorderRadius) 0 0;
 }
 
+.listSorting-container {
+    border-style: solid;
+    border-color: var(--Color_02);
+    border-width: 0 0 1px 0;
+}
+
+.projectSettings-container {
+    border-style: solid;
+    border-color: var(--Color_02);
+    border-width: 1px 0 0 0;
+}
+
+.util-container {
+    border-style: solid;
+    border-color: var(--Color_02);
+    border-width: 1px 0 0 0;
+}
+
 /* PREVIEW */
-.preview {
+.preview-container {
     grid-area: preview;
+    grid-template-areas:
+    "."
+    "preview-wrapper"
+    "preview-wrapper"
+    ".";
 }
 
 .preview > .title-container {
     border-radius: var(--BorderRadius) var(--BorderRadius) 0 0;
+}
+
+.preview-wrapper {
+    grid-area: preview-wrapper;
 }

@@ -1,7 +1,7 @@
 const body = document.body;
 
-const Projects = require('./Projects.js');
-const { CreateStyleSheet } = require('./../utils/htmlGen.js');
+const Projects = require('./projects.js');
+const { CreateStyleSheet } = require('../utils/htmlGen.js');
 
 const { Page } = require('./pages.js');
 

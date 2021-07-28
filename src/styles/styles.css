@@ -21,8 +21,11 @@
     --ColorTextYellow: rgb(233, 197, 120);
 
     /* Variables */
-    --BorderRadius: 3px;
+    --BorderRadius: 5px;
     --Margin: 4px;
+    --Titleheight: 45px;
+    --NavbarHeight: 20px;
+    --ListSortingHeight: 20px;
 }
 
 * {
@@ -42,11 +45,15 @@ html {
 
 body {
     background-color: var(--Color_02);
-    /* overflow: hidden; */
 }
 
 .noselect {
     user-select: none;
+}
+
+/* Title */
+.title {
+    font-size: 20px;
 }
 
 .title-container {
@@ -57,35 +64,3 @@ body {
     border-color: var(--Color_02);
     border-width: 0px 0px 1px 0px;
 }
-
-.title {
-    font-size: 20px;
-}
-
-.btn-01 {
-    background-color: var(--ColorButton);
-    padding: 1em;
-    border-radius: var(--BorderRadius);
-}
-
-.btn-01:hover {
-    background-color: var(--ColorButtonHovered);
-}
-
-/* SCROLLBAR */
-/* ::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--color-primaryDark);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--color-primaryDarker);
-    border-radius: 3px;
-}
-
-::-webkit-scrollbar-corner {
-    background: rgba(0,0,0,0);
-} */

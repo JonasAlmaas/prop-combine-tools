@@ -25,17 +25,9 @@ var CreateLabel = (classes, text) => {
     return div;
 }
 
-var CreateButton = (classes, text) => {
-    var btn = document.createElement("button");
-    btn.innerHTML = text;
-    btn.className = classes;
-    return btn;
-}
-
 module.exports = {
     CreateStyleSheet,
     CreateDiv,
     CreateTitle,
     CreateLabel,
-    CreateButton,
 }
