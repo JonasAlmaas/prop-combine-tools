@@ -3,20 +3,35 @@
 }
 
 .listSorting-container {
+    position: sticky;
+    top: 0;
+    background-color: var(--Color_03);
     align-items: center;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    padding: 0 calc(var(--Margin) + var(--ScrollbarWidth)) 0 var(--Margin);
+    padding: 0 var(--Margin) 0 var(--Margin);
     margin: 0 var(--Margin) 0 var(--Margin);
+    height: var(--ListSortingHeight);
 }
 
 .sorting-option {
-    color: var(--ColorTextGrey);
-    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    height: 100%;
 }
 
-.sorting-option:first-child {
+.sorting-option-label {
+    color: var(--ColorTextGrey);
+    background-color: yellow;
+}
+
+/* .sorting-option:first-child {
     text-align: left;
+} */
+
+.sorting-option:hover {
+    background-color: var(--Color_04);
 }
 
 .listItem-container {
