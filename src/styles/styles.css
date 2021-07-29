@@ -51,6 +51,7 @@ body {
 
 .noselect {
     user-select: none;
+    pointer-events: none;
 }
 
 /* Title */
