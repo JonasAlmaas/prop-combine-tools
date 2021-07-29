@@ -73,10 +73,12 @@ var LoadPage = () => {
     {
         var styleSheetScrollbar = CreateStyleSheet('./styles/scrollbar.css')
         var styleSheetList = CreateStyleSheet('./styles/list.css')
+        var styleSheetButton = CreateStyleSheet('./styles/button.css')
         var styleSheet = CreateStyleSheet('./styles/pages/projects.css')
     
         body.append(styleSheetScrollbar);
         body.append(styleSheetList);
+        body.append(styleSheetButton);
         body.append(styleSheet);
     }
 
@@ -87,24 +89,6 @@ var LoadPage = () => {
         var projectsContainer = CreateDiv("projects-container container");
         {
             var title = CreateTitle("Projects");
-            projectListSorting = CreateDiv("listSorting-container");
-            {
-                var name = CreateDiv("sorting-option noselect");
-                name.innerHTML = "Name";
-                name.addEventListener('click', (e) => { sortingOption = SortingOption.Name; });
-
-                var dateModified = CreateDiv("sorting-option noselect");
-                dateModified.innerHTML = "Date modified";
-                dateModified.addEventListener('click', (e) => { sortingOption = SortingOption.DateModified; });
-
-                var dateCreated = CreateDiv("sorting-option noselect");
-                dateCreated.innerHTML = "Date Created";
-                dateCreated.addEventListener('click', (e) => { sortingOption = SortingOption.DateCreated; });
-
-                projectListSorting.appendChild(name);
-                projectListSorting.appendChild(dateModified);
-                projectListSorting.appendChild(dateCreated);
-            }
             var projectList = CreateDiv("list-container");
             projectList.id = "ProjectList"
             var projectSettings = CreateDiv("projectSettings-container");
@@ -114,7 +98,6 @@ var LoadPage = () => {
             var utilContainer = CreateDiv("util-container");
             
             projectsContainer.appendChild(title);
-            projectsContainer.appendChild(projectListSorting);
             projectsContainer.appendChild(projectList);
             projectsContainer.appendChild(projectSettings);
             projectsContainer.appendChild(utilContainer);
@@ -125,6 +108,21 @@ var LoadPage = () => {
             var title = CreateTitle("Preview");
             var previewWrapper = CreateDiv("preview-wrapper");
             var utilContainer = CreateDiv("util-container");
+            {
+                var btnGenerateFiles = CreateDiv("btn btn-generateFiles");
+                {
+                    var label = CreateLabel("noselect btn-label", "Generate Files");
+                    btnGenerateFiles.appendChild(label);
+                }
+                btnGenerateFiles.addEventListener('click', (e) => {
+                    if (selectedProjectKey != null) {
+                        console.log(`Generateing Files for ${jsonData[selectedProjectKey]['name']}`);
+                    } else {
+                        console.log("No project selected");
+                    }
+                });
+                utilContainer.appendChild(btnGenerateFiles);
+            }
 
             previewContainer.appendChild(title);
             previewContainer.appendChild(previewWrapper);
@@ -153,14 +151,43 @@ function ReloadProjectList() {
     //     default { console.log(`Invalid sorting option! [${sortingOption}]`) }
     // }
 
-    for (var i = 0; i < 1; i++) {
+    projectListSorting = CreateDiv("listSorting-container");
+    {
+        var name = CreateDiv("sorting-option");
+        {
+            var label = CreateLabel("sorting-option-label noselect", "Name");
+            name.appendChild(label);
+        }
+        name.addEventListener('click', (e) => { sortingOption = SortingOption.Name; });
+
+        var dateModified = CreateDiv("sorting-option");
+        {
+            var label = CreateLabel("sorting-option-label noselect", "Date modified");
+            dateModified.appendChild(label);
+        }
+        dateModified.addEventListener('click', (e) => { sortingOption = SortingOption.DateModified; });
+
+        var dateCreated = CreateDiv("sorting-option");
+        {
+            var label = CreateLabel("sorting-option-label noselect", "Date Created");
+            dateCreated.appendChild(label);
+        }
+        dateCreated.addEventListener('click', (e) => { sortingOption = SortingOption.DateCreated; });
+
+        projectListSorting.appendChild(name);
+        projectListSorting.appendChild(dateModified);
+        projectListSorting.appendChild(dateCreated);
+    }
+    projectList.appendChild(projectListSorting);
+
+    for (var i = 0; i < 10; i++) {
         for (var key in jsonData) {
             var listItemContainer = null;
             {
                 if (key == selectedProjectKey) {
-                    listItemContainer = CreateDiv("listItem-container listItem-container-selected noselect");
+                    listItemContainer = CreateDiv("listItem-container listItem-container-selected");
                 } else {
-                    listItemContainer = CreateDiv("listItem-container noselect");
+                    listItemContainer = CreateDiv("listItem-container");
                 }
                 listItemContainer.id = key;
                 
@@ -169,9 +196,9 @@ function ReloadProjectList() {
                     ReloadProjectList();
                 });
     
-                var listItemLabel = CreateLabel("", jsonData[key]['name']);
-                var dateLastModifiedLabel = CreateLabel("listItem-date", DataAndTimeToString(jsonData[key]['dateModified']));
-                var dateCreatedLabel = CreateLabel("listItem-date", DataAndTimeToString(jsonData[key]['dateCreated']));
+                var listItemLabel = CreateLabel("noselect", jsonData[key]['name']);
+                var dateLastModifiedLabel = CreateLabel("listItem-date noselect", DataAndTimeToString(jsonData[key]['dateModified']));
+                var dateCreatedLabel = CreateLabel("listItem-date noselect", DataAndTimeToString(jsonData[key]['dateCreated']));
 
                 listItemContainer.appendChild(listItemLabel);
                 listItemContainer.appendChild(dateLastModifiedLabel);
