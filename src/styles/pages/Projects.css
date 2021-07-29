@@ -16,6 +16,7 @@
     border-radius: var(--BorderRadius);
     display: grid;
     grid-template-rows: var(--Titleheight) 1fr var(--Titleheight);
+    grid-template-columns: 1fr;
 }
 
 /* NAVBAR */
@@ -27,7 +28,7 @@
 /* PROJECTS */
 .projects-container {
     grid-area: projects;
-    grid-template-rows: var(--Titleheight) var(--ListSortingHeight) 1fr 1fr var(--Titleheight);
+    grid-template-rows: var(--Titleheight) 1fr 1fr var(--Titleheight);
     overflow: auto;
 }
 
@@ -56,11 +57,6 @@
 /* PREVIEW */
 .preview-container {
     grid-area: preview;
-    grid-template-areas:
-    "."
-    "preview-wrapper"
-    "preview-wrapper"
-    ".";
 }
 
 .preview > .title-container {
@@ -68,5 +64,9 @@
 }
 
 .preview-wrapper {
-    grid-area: preview-wrapper;
+
+}
+
+.btn-generateFiles {
+    border-radius: 0 0 var(--BorderRadius) var(--BorderRadius);
 }
