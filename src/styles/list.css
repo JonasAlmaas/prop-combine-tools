@@ -44,12 +44,11 @@
     border-width: 0;
     border-bottom-width: 1px;
     margin: 0 var(--Margin) 0 var(--Margin);
-    height: 40px;
+    height: var(--ListItemHeight);
 }
 
 .listItem-container > div {
     padding-left: var(--Margin);
-    pointer-events: none;
 }
 
 .listItem-container:last-child {
@@ -60,10 +59,13 @@
     background-color: var(--Color_04);
 }
 
+.listItem-name {
+    color: var(--ColorTextWhite);
+}
+
 .listItem-date {
     text-align: right;
     color: var(--ColorTextGrey);
     padding-right: var(--Margin);
     padding-left: 0;
-    pointer-events: none;
 }
