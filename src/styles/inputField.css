@@ -1,0 +1,13 @@
+.input-field {
+    color: var(--ColorTextWhite);
+    background-color: var(--Color_04);
+    border-radius: var(--BorderRadius);
+    /* height: 100%;
+    width: 100%; */
+    text-indent: var(--Margin);
+}
+
+.input-field::selection {
+    background-color: var(--ColorTextWhite);
+    color: var(--Color_04);
+}
