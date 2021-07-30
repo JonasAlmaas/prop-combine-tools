@@ -28,7 +28,7 @@
 /* PROJECTS */
 .projects-container {
     grid-area: projects;
-    grid-template-rows: var(--Titleheight) 1fr 1fr var(--Titleheight);
+    grid-template-rows: var(--Titleheight) 1fr auto var(--Titleheight);
     overflow: auto;
 }
 
@@ -42,16 +42,45 @@
     border-width: 0 0 1px 0;
 }
 
-.projectSettings-container {
-    border-style: solid;
-    border-color: var(--Color_02);
-    border-width: 1px 0 0 0;
+.project-settings-wrapper > .title-container {
+    border-width: 1px 0 1px 0;
+    height: 50px;
+}
+
+.project-settings-container {
+    padding-top: var(--Margin);
+    display: grid;
+    grid-gap: var(--Margin);
+    grid-template-columns: 1fr 2.5fr 1fr;
+    height: var(--SettingsElementHeight);
+    padding-left: calc(var(--Margin)*2);
+    padding-right: calc(var(--Margin)*2);
+}
+
+.project-settings-container:last-child {
+    padding-bottom: calc(var(--Margin)*2);
+}
+
+.project-settings-container .label-container {
+    display: flex;
+    align-items: center;
+}
+
+.project-settings-container .label {
+    color: var(--ColorTextGrey);
+    text-align: right;
+    width: 100%;
 }
 
 .util-container {
     border-style: solid;
     border-color: var(--Color_02);
     border-width: 1px 0 0 0;
+}
+
+.projects-container .util-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 /* PREVIEW */
