@@ -10,6 +10,7 @@
     --ColorButton: rgb(0, 68, 226);
     --ColorButtonHovered: rgb(73, 125, 255);
 
+    /* Text Colors */
     --ColorTextWhite: rgb(231, 233, 237);
     --ColorTextGrey: rgb(156, 156, 156);
     --ColorTextBlue: rgb(86, 182, 195);
@@ -21,17 +22,19 @@
     --ColorTextYellow: rgb(233, 197, 120);
 
     /* Variables */
-    --BorderRadius: 5px;
+    --NavbarHeight: 20px;
+    --ScrollbarWidth: 10px;
+    --BorderRadius: 4px;
     --Margin: 4px;
     --Titleheight: 45px;
-    --NavbarHeight: 20px;
     --ListSortingHeight: 25px;
-    --ScrollbarWidth: 10px;
+    --ListItemHeight: 40px;
+    --SettingsElementHeight: 30px;
 }
 
 * {
     border: none;
-    color: var(--ColorTextWhite);
+    color: red;
     font: inherit;
     font-size: 14px;
     margin: 0;
@@ -56,6 +59,7 @@ body {
 
 /* Title */
 .title {
+    color: var(--ColorTextWhite);
     font-size: 20px;
 }
 
