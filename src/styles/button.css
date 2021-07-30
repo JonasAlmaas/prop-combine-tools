@@ -10,7 +10,21 @@
     background-color: var(--Color_04);
 }
 
+.btn-browse {
+    border-radius: var(--BorderRadius);
+    background-color: var(--Color_04);
+}
+
+.btn-browse:hover .btn-label {
+    color: var(--ColorTextWhite);
+}
+
+.btn-browse .btn-label {
+    color: var(--ColorTextGrey);
+    font-size: 14px;
+}
+
 .btn-label {
-    pointer-events: none;
+    color: var(--ColorTextWhite);
     font-size: 16px;
 }
