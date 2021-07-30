@@ -10,25 +10,26 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 0 var(--Margin) 0 var(--Margin);
-    margin: 0 var(--Margin) 0 var(--Margin);
     height: var(--ListSortingHeight);
 }
 
 .sorting-option {
     display: flex;
     align-items: center;
-    justify-content: right;
+    text-align: right;
     height: 100%;
 }
 
 .sorting-option-label {
+    width: 100%;
+    text-align: right;
     color: var(--ColorTextGrey);
-    background-color: yellow;
+    margin: 0 var(--Margin) 0 var(--Margin);
 }
 
-/* .sorting-option:first-child {
+.sorting-option:first-child > .sorting-option-label {
     text-align: left;
-} */
+}
 
 .sorting-option:hover {
     background-color: var(--Color_04);
@@ -37,19 +38,17 @@
 .listItem-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    
-    padding: 0 var(--Margin) 0 var(--Margin);
     align-items: center;
     border-style: solid;
     border-color: var(--Color_02);
     border-width: 0;
     border-bottom-width: 1px;
     margin: 0 var(--Margin) 0 var(--Margin);
-
     height: 40px;
 }
 
 .listItem-container > div {
+    padding-left: var(--Margin);
     pointer-events: none;
 }
 
@@ -64,5 +63,7 @@
 .listItem-date {
     text-align: right;
     color: var(--ColorTextGrey);
+    padding-right: var(--Margin);
+    padding-left: 0;
     pointer-events: none;
 }

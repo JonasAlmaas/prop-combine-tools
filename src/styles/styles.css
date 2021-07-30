@@ -3,9 +3,9 @@
 :root {
     /* Colors */
     --Color_01: rgb(69, 69, 69);
-    --Color_02: rgb(41, 42, 45);
-    --Color_03: rgb(32, 33, 36);
-    --Color_04: rgb(26, 27, 30);
+    --Color_02: rgb(43, 43, 43);
+    --Color_03: rgb(34, 34, 34);
+    --Color_04: rgb(27, 27, 27);
     
     --ColorButton: rgb(0, 68, 226);
     --ColorButtonHovered: rgb(73, 125, 255);
