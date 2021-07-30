@@ -25,9 +25,19 @@ var CreateLabel = (classes, text) => {
     return div;
 }
 
+var CreateInput = (classes, id) => {
+    var input = document.createElement('input');
+    input.className = classes;
+    input.type = "text";
+    input.id = id;
+    input.spellcheck = false;
+    return input;
+}
+
 module.exports = {
     CreateStyleSheet,
     CreateDiv,
     CreateTitle,
     CreateLabel,
+    CreateInput,
 }
